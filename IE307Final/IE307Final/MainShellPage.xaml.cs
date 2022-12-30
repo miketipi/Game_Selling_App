@@ -8,7 +8,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Xamarin.Essentials;
 using System.Windows.Input;
-using IE307Final.Views;
+using IE307Final;
 namespace IE307Final
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]

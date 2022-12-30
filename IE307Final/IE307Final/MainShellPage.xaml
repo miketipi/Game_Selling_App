@@ -2,7 +2,7 @@
 <Shell xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IE307Final.MainShellPage"
-       xmlns:local="clr-namespace:IE307Final.Vi">
+       xmlns:local="clr-namespace:IE307Final">
     <Shell.Resources>
         <ResourceDictionary>
             <Style x:Key="BaseStyle"
@@ -88,7 +88,7 @@
             </Style>
         </ResourceDictionary>
     </Shell.Resources>
-    <FlyoutItem Title="Trang chủ">
+    <FlyoutItem Title="Trang chủ" Icon="icon_home.png">
         <Tab>
             <ShellContent ContentTemplate="{DataTemplate local:MainPage}" />
         </Tab>
@@ -103,7 +103,7 @@
             <ShellContent ContentTemplate="{DataTemplate local:MyCart}" />
         </Tab>
     </FlyoutItem>
-    <FlyoutItem Title="Tài khoản">
+    <FlyoutItem Title="Tài khoản" Icon="user.png">
         <Tab>
             <ShellContent ContentTemplate="{DataTemplate local:Account}" />
         </Tab>
@@ -113,7 +113,7 @@
             <ShellContent ContentTemplate="{DataTemplate local:AboutUs}" />
         </Tab>
     </FlyoutItem>
-    <MenuItem Text="Ho tro" IconImageSource="HelpIcon.png" Command="{Binding HelpCommand}"
+    <MenuItem Text="Hỗ trợ" IconImageSource="HelpIcon.png" Command="{Binding HelpCommand}"
               CommandParameter="https://learn.microsoft.com/en-us/xamarin/">
     </MenuItem>
     <TabBar>

@@ -10,7 +10,7 @@ using Xamarin.Forms.Xaml;
 namespace IE307Final
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Footer : ContentPage
+    public partial class Footer : ContentView
     {
         public Footer()
         {

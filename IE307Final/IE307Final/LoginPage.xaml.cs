@@ -16,5 +16,20 @@ namespace IE307Final
         {
             InitializeComponent();
         }
+
+        private void SwtNhoMatKhau_Toggled(object sender, ToggledEventArgs e)
+        {
+
+        }
+
+        private void Btn_Signup_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnLogin_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }
