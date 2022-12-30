@@ -93,12 +93,12 @@
             <ShellContent ContentTemplate="{DataTemplate local:MainPage}" />
         </Tab>
     </FlyoutItem>
-    <FlyoutItem Title="Thịnh hành">
+    <FlyoutItem Title="Thịnh hành" Icon="trend.png">
         <Tab>
             <ShellContent ContentTemplate="{DataTemplate local:Trending}" />
         </Tab>
     </FlyoutItem>
-    <FlyoutItem Title="Giỏ hàng">
+    <FlyoutItem Title="Giỏ hàng" Icon="cart.png">
         <Tab>
             <ShellContent ContentTemplate="{DataTemplate local:MyCart}" />
         </Tab>

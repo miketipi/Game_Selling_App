@@ -1,24 +1,90 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="IE307Final.MainPage">
+             x:Class="IE307Final.MainPage"
+             Shell.NavBarIsVisible="True" Title="Trang chủ" BackgroundColor="White">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Margin="0,10,0,15">
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="FillAndExpand" />
+            <Frame Padding="0"
+                   BackgroundColor="LightGray"
+                   CornerRadius="45"
+                   HasShadow="True"
+                   HeightRequest="40"
+                   HorizontalOptions="FillAndExpand">
+                <StackLayout Orientation="Horizontal">
+                    <Image Margin="20,10,0,10"
+                           Aspect="AspectFit"
+                           HeightRequest="18"
+                           Source="search.png"
+                           WidthRequest="18" />
+                    <Editor WidthRequest="300"
+                            Placeholder="Tìm kiếm game" />
+                </StackLayout>
+            </Frame>
+            </StackLayout>
+            <ScrollView Orientation="Vertical" VerticalScrollBarVisibility="Never">
+                <StackLayout>
+                    <StackLayout>
+                        <StackLayout>
+                            <Label Text="Thể loại game" FontSize="26" FontAttributes="Bold" TextColor="Black" HorizontalOptions="CenterAndExpand"/>
+                            <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                                <StackLayout Orientation="Horizontal">
+                                    <StackLayout Margin="10,0,10,0">
+                                        <Frame HeightRequest="100"
+                                           WidthRequest="100"
+                                           CornerRadius="45">
+                                        <Image Aspect="AspectFit"
+                                               Source="action.png" />
+                                        </Frame>
+                                        <Label FontSize="18"
+                                           Text="Hành động"
+                                               HorizontalOptions="CenterAndExpand"
+                                               FontAttributes="Bold" />
+                                    </StackLayout>
+                                    <StackLayout Margin="10,0,10,0">
+                                        <Frame HeightRequest="100"
+                                               WidthRequest="100"
+                                               CornerRadius="45">
+                                            <Image Aspect="AspectFit"
+                                                   Source="puzzle.png" />
+                                        </Frame>
+                                        <Label FontSize="18"
+                                               Text="Giải đố"  HorizontalOptions="CenterAndExpand" FontAttributes="Bold"/>
+                                    </StackLayout>
+                                    <StackLayout Margin="10,0,10,0">
+                                        <Frame HeightRequest="100"
+                                               WidthRequest="100"
+                                               CornerRadius="45">
+                                            <Image Aspect="AspectFit"
+                                                   Source="puzzle.png" />
+                                        </Frame>
+                                        <Label FontSize="18"
+                                               Text="Thể thao"
+                                               HorizontalOptions="CenterAndExpand"
+                                               FontAttributes="Bold" />
+                                    </StackLayout>
+                                    <StackLayout Margin="10,0,10,0">
+                                        <Frame HeightRequest="100"
+                                               WidthRequest="100"
+                                               CornerRadius="45">
+                                            <Image Aspect="AspectFit"
+                                                   Source="puzzle.png" />
+                                        </Frame>
+                                        <Label FontSize="18"
+                                               Text="Nhập vai"
+                                               HorizontalOptions="CenterAndExpand"
+                                               FontAttributes="Bold" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </ScrollView>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
 
-    <StackLayout>
-        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
-            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
-        </Frame>
-        <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
-        <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
-        <Label FontSize="16" Padding="30,24,30,0">
-            <Label.FormattedText>
-                <FormattedString>
-                    <FormattedString.Spans>
-                        <Span Text="Learn more at "/>
-                        <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
-                    </FormattedString.Spans>
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
-    </StackLayout>
-
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage>
