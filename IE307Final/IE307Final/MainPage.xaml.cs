@@ -14,5 +14,15 @@ namespace IE307Final
         {
             InitializeComponent();
         }
+
+        private void CV_Trending_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void AddToWishList_Tapped(object sender, EventArgs e)
+        {
+
+        }
     }
 }
