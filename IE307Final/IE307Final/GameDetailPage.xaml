@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IE307Final.GameDetailPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <ScrollView x:Name="Scroll_ChiTiet" Orientation="Vertical">
+                <StackLayout>
+                    <Image Aspect="AspectFit"
+                           HeightRequest="150"
+                           Source="{Binding Game_Img}" />
+                    <StackLayout>
+                        <StackLayout>
+                            <StackLayout>
+                                <Label FontSize="18"
+                                       FontAttributes="Bold"
+                                       TextColor="Black" Text="{Binding Name}"/>
+                                <Label Text="{Binding Price, StringFormat='{0:F2} vnđ'}" />
+                            </StackLayout>
+                            <StackLayout>
+                                <Label FontSize="18"
+                                       FontAttributes="Bold"
+                                       TextColor="Black" Text="{Binding Description}"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
