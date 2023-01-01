@@ -16,5 +16,20 @@ namespace IE307Final
         {
             InitializeComponent();
         }
+
+        private void cmdMuahang_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmdxoa_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmdCapnhat_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }

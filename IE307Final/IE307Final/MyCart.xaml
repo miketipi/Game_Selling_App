@@ -4,9 +4,71 @@
              x:Class="IE307Final.MyCart">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <ListView x:Name="lstgiohang"
+                      HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{Binding Game_Img}"
+                                       Grid.Column="0"
+                                       Grid.Row="0"
+                                       Grid.RowSpan="3" />
+                                <Label Text="{Binding Name}"
+                                       Grid.Column="1"
+                                       Grid.Row="0"
+                                       VerticalOptions="Start"
+                                       TextColor="Red"
+                                       FontSize="20" />
+                                <Label Text="{Binding Price}"
+                                       Grid.Column="1"
+                                       Grid.Row="1"
+                                       FontSize="16"
+                                       VerticalOptions="Start"
+                                       TextColor="Blue" />
+                                <Label Text="{Binding Description}"
+                                       Grid.Column="1"
+                                       Grid.Row="2"
+                                       FontSize="16"
+                                       VerticalOptions="Start" />
+                                <Button x:Name="cmdCapnhat"
+                                        Text="Cập Nhật"
+                                        Grid.Column="0"
+                                        Grid.Row="3"
+                                        Clicked="cmdCapnhat_Clicked" />
+                                <Button x:Name="cmdxoa"
+                                        Text="Xóa"
+                                        Grid.Column="1"
+                                        Grid.Row="3"
+                                        Clicked="cmdxoa_Clicked" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Editor x:Name="txtdiachigiaohang"
+                    Placeholder="Địa chỉ giao hàng"
+                    HeightRequest="50" />
+            <Editor x:Name="txtdiachiloinhan"
+                    Placeholder="Lời Nhắn"
+                    HeightRequest="50" />
+            <Button x:Name="cmdMuahang"
+                    Text="Mua Hàng"
+                    VerticalOptions="Center"
+                    Clicked="cmdMuahang_Clicked" />
+
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

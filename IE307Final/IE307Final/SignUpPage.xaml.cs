@@ -16,5 +16,10 @@ namespace IE307Final
         {
             InitializeComponent();
         }
+
+        private void Btn_SignUp_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }

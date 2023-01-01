@@ -10,7 +10,7 @@ namespace IE307Final.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public string Game_Img { get; set; }
-        public string Game_Type { get; set; }
+        public int Game_Type { get; set; }
         public float Rating { get; set; }
         public float Price { get; set; }
     }
