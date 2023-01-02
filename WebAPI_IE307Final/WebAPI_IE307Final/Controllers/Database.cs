@@ -99,6 +99,30 @@ namespace WebAPI_IE307Final.Controllers
         {
             return Read_Table("GameList");
         }
-        public static DataTable 
+        public static DataTable LayGameTheoLoai(int maloai)
+        {
+            Dictionary<string, object> param = new Dictionary<string, object>();
+            param.Add("maloai", maloai);
+            return Read_Table("LayGameTheoLoai", param);
+        }
+        public static Account Login(string username, string password)
+        {
+            Dictionary<string, object> param = new Dictionary<string, object>();
+            param.Add("usrname", username);
+            param.Add("pwd", password);
+            DataTable tb = Read_Table("Login", param);
+            Account kq = new Account();
+            if (tb.Rows.Count > 0)
+            {
+                kq.UserID = int.Parse(tb.Rows[0]["UserID"].ToString());
+                kq.RealName = tb.Rows[0]["RealName"].ToString();
+                kq.UserName = tb.Rows[0]["UserName"].ToString();
+                kq.Email = tb.Rows[0]["Email"].ToString();
+                kq.PassWord = tb.Rows[0]["PassWord"].ToString();
+            }
+            else
+                kq.UserID = 0;
+            return kq;
+        }
     }
 }
