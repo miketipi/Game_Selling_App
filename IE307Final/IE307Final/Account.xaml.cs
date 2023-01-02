@@ -16,5 +16,15 @@ namespace IE307Final
         {
             InitializeComponent();
         }
+
+        private void login_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new LoginPage());
+        }
+
+        private void signup_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new SignUpPage());
+        }
     }
 }

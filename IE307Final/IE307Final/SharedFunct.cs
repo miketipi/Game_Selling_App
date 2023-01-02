@@ -12,7 +12,7 @@ namespace IE307Final
             {
                 Name = "Age of Empire",
                 Description = "Game De Che",
-                Game_Type = "RPS",
+                Game_Type = 1,
                 Game_Img = "http://genk.mediacdn.vn/2017/photo-1-1508117938308.jpg",
                 Price = 25000,
                 ProductID = "1",
@@ -22,7 +22,7 @@ namespace IE307Final
             {
                 Name = "Age of Empire",
                 Description = "Game De Che",
-                Game_Type = "RPS",
+                Game_Type = 1,
                 Game_Img = "http://genk.mediacdn.vn/2017/photo-1-1508117938308.jpg",
                 Price = 25000,
                 ProductID = "1",
@@ -32,7 +32,7 @@ namespace IE307Final
             {
                 Name = "Age of Empire",
                 Description = "Game De Che",
-                Game_Type = "RPS",
+                Game_Type = 1,
                 Game_Img = "http://genk.mediacdn.vn/2017/photo-1-1508117938308.jpg",
                 Price = 25000,
                 ProductID = "1",

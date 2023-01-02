@@ -12,6 +12,8 @@ create table [dbo].[game](
 [Game_Img] [nvarchar](250) null,
 [Rating] [float] null,
 [Description] [nvarchar](max) null,
+[Status] [bit] null,
+[Platform] [nvarchar](50),
 PRIMARY KEY CLUSTERED 
 (
 	[ProductID] ASC
@@ -49,7 +51,40 @@ CREATE TABLE [dbo].[Account](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/* */
+/*Tạo CT DonHang */
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CTDonHang](
+	[Ma_CTDH] [int] IDENTITY(1,1) NOT NULL,
+	[Ma_DH] [int] NULL,
+	[ProductID] [int] NULL,
+	[So_Luong] [int] NULL,
+	[Price] [real] NULL,
+	[Total] [real] NULL,
+ CONSTRAINT [PK_CTDonHang] PRIMARY KEY CLUSTERED 
+(
+	[Ma_CTDH] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/* Đơn hàng */
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Don_Hang](
+	[SoDH] [int] IDENTITY(1,1) NOT NULL,
+	[UserID] [int] NULL,
+	[Ngay_Mua] [datetime] NULL,
+	[Tinh_Trang_Don_Hang] [bit] NULL,
+ CONSTRAINT [PK_Don_Hang] PRIMARY KEY CLUSTERED 
+(
+	[SoDH] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
 /*Test dang nhap*/
 SET ANSI_NULLS ON
 GO

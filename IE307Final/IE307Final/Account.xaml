@@ -4,9 +4,10 @@
              x:Class="IE307Final.Account">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Button x:Name="login"
+                    Clicked="login_Clicked" />
+            <Button x:Name="signup"
+                    Clicked="signup_Clicked" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
