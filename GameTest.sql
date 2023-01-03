@@ -122,6 +122,7 @@ where Game_Type=@maloai
 GO
 /* */
 
+<<<<<<< HEAD
 SET IDENTITY_INSERT game ON;
 Go
 insert into game (ProductID, Game_Type, Name, Price, Game_Img, Rating, Description)
@@ -182,3 +183,28 @@ SET IDENTITY_INSERT CTDonHang ON
 insert into CTDonHang (Ma_CTDH,Ma_DH,ProductID,So_Luong,Price,Total)
 values ('1','12354','3971273','1','120000','120000');
 SET IDENTITY_INSERT CTDonHang OFF
+=======
+insert into game values ('1000','fps','Left 4 dead 2','120000','','3.5','là một trò chơi bắn súng góc nhìn thứ nhất','1','PC');
+insert into game values ('null','fps','Counter-strike Global Offensive','350000','','4.5','là một trò chơi bắn súng fps','1','PC');
+insert into game values ('null','Third-Person shooter','Risk of rain 2','180000','','4.0','bắn súng góc nhìn thứ ba giống người thật được phát triển bởi Hopoo Games','1','PC');
+insert into game values ('null','Simulation','GTA V','500000','','3.8','Grand Theft Auto V là một trò chơi điện tử hành động phiêu lưu năm 2013','1','PC');
+insert into game values ('null','Simulation','Hero Siege','120000','','3.2','Hero Siege là một trò chơi Slash của Hack với các yếu tố roguelike- & RPG','0','Console');
+insert into game values ('null','FPS','Rainbow Six Siege','300000','','3.5','là một trò chơi điện tử bắn súng chiến thuật','0','Console');
+insert into game values ('null','Racing','Mario Kart Wii','90000','','5','là một trò chơi đua xe kart được phát triển và xuất bản bởi Nintendo cho Wii','0','Console');
+insert into game values ('null','Simulation','Pokémon Unite','12000','','4',' là một trò chơi điện tử đấu trường trực tuyến nhiều người chơi','0','Console');
+insert into game values ('null','fps','Left 4 dead 2','120000','','3.5','là một trò chơi bắn súng góc nhìn thứ nhất','0','Console');
+insert into game values ('null','fps','Left 4 dead 2','120000','','3.5','là một trò chơi bắn súng góc nhìn thứ nhất','0','Console');
+
+insert into loaigame values ('1','fps');
+insert into loaigame values ('null','Third-Person shooter');
+insert into loaigame values ('null','Simulation');
+insert into loaigame values ('null','Racing');
+insert into loaigame values ('null','PVP');
+
+insert into Account values ('1','admin','036182673','123456','lmao@gmail.com');
+insert into Account values ('null','phuc','036182673','123456','lmao@gmail.com');
+
+insert into Don_Hang values ('1','2','3/5/2022','1');
+
+insert into CTDonHang values ('1','12354','3971273','1','120000','120000');
+>>>>>>> f179758c5a98bab66b229f84abc52f054c523ae8
