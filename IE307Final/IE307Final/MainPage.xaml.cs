@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using IE307Final.Models;
+using Newtonsoft.Json;
+using System.Net.Http;
 namespace IE307Final
 {
     public partial class MainPage : ContentPage
@@ -17,10 +19,14 @@ namespace IE307Final
             InitializeComponent();
             CreateGameList();
         }
-        public void CreateGameList()
+        public async void CreateGameList()
         {
-            SharedFunct.CreateGameList(lst_Game);
-            CV_Trending.ItemsSource = lst_Game;
+            HttpClient http = new HttpClient();
+            var kq = await http.GetStringAsync
+              ("http://192.168.1.10/doanie307/api/HelloWebAPIController/LoadGame");
+            var lst_game = JsonConvert.DeserializeObject<List<Product>>(kq);
+            CV_Trending.ItemsSource = lst_game;
+
         }
         private void CV_Trending_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -44,7 +50,8 @@ namespace IE307Final
 
         private void CV_Recommend_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            Product game = CV_Trending.SelectedItem as Product;
+            Navigation.PushAsync(new GameDetailPage(game));
         }
     }
 }

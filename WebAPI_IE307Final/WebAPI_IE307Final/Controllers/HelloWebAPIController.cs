@@ -29,7 +29,21 @@ namespace WebAPI_IE307Final.Controllers
             {
                 return NotFound();
             }
-        } 
+        }
+        [Route("api/HelloWebAPIController/LoadGame")]
+        [HttpGet]
+        public IHttpActionResult LoadGame()
+        {
+            try
+            {
+                DataTable tb = Database.LoadGame();
+                return Ok(tb);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
         [Route("api/HelloWebAPIController/LayGameTheoLoai")]
         [HttpGet]
         public IHttpActionResult LayGameTheoLoai(int Game_Type)

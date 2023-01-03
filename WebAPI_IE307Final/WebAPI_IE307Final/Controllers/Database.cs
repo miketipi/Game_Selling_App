@@ -99,6 +99,10 @@ namespace WebAPI_IE307Final.Controllers
         {
             return Read_Table("GameList");
         }
+        public static DataTable LoadGame()
+        {
+            return Read_Table("LoadGame");
+        }
         public static DataTable LayGameTheoLoai(int maloai)
         {
             Dictionary<string, object> param = new Dictionary<string, object>();
