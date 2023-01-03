@@ -95,7 +95,7 @@
     </FlyoutItem>
     <FlyoutItem Title="Thịnh hành" Icon="trend.png">
         <Tab>
-            <ShellContent ContentTemplate="{DataTemplate local:Trending}" />
+            <ShellContent ContentTemplate="{DataTemplate local:All_Game}" />
         </Tab>
     </FlyoutItem>
     <FlyoutItem Title="Giỏ hàng" Icon="cart.png">
