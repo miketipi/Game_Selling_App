@@ -16,9 +16,33 @@ namespace WebAPI_IE307Final.Controllers
         {
             return Ok("Chao mung web API");
         }
-        [Route("api/LoaiGame/GameList")]
+        [Route("api/HelloWebAPIController/GameList")]
         [HttpGet]
-       
-            
+       public IHttpActionResult GameList()
+        {
+            try
+            {
+                DataTable tb = Database.GameList();
+                return Ok(tb);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        } 
+        [Route("api/HelloWebAPIController/LayGameTheoLoai")]
+        [HttpGet]
+        public IHttpActionResult LayGameTheoLoai(int Game_Type)
+        {
+            try
+            {
+                DataTable tb = Database.LayGameTheoLoai(Game_Type);
+                return Ok(tb);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
     }
 }

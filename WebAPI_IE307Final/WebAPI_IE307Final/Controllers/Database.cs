@@ -12,7 +12,7 @@ namespace WebAPI_IE307Final.Controllers
     {
         public static DataTable Read_Table(string StoredProcedureName, Dictionary<string, object> dic_param = null)
         {
-            string SQLconnectionString = ConfigurationManager.ConnectionStrings["Connectionstring"].ConnectionString;
+            string SQLconnectionString = ConfigurationManager.ConnectionStrings["QLGAMEConnectionString"].ConnectionString;
             DataTable result = new DataTable("table1");
             using (SqlConnection conn = new SqlConnection(SQLconnectionString))
             {
@@ -51,7 +51,7 @@ namespace WebAPI_IE307Final.Controllers
         }
         public static object Exec_Command(string StoredProcedureName, Dictionary<string, object> dic_param = null)
         {
-            string SQLconnectionString = ConfigurationManager.ConnectionStrings["Connectionstring"].ConnectionString;
+            string SQLconnectionString = ConfigurationManager.ConnectionStrings["QLGAMEConnectionString"].ConnectionString;
             object result = null;
             using (SqlConnection conn = new SqlConnection(SQLconnectionString))
             {
