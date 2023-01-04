@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
+using Newtonsoft.Json;
+using System.Net.Http;
 namespace IE307Final
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -24,12 +25,21 @@ namespace IE307Final
 
         private void Btn_Signup_Clicked(object sender, EventArgs e)
         {
-
+            Navigation.PushAsync(new SignUpPage());
         }
 
-        private void BtnLogin_Clicked(object sender, EventArgs e)
+        private async void BtnLogin_Clicked(object sender, EventArgs e)
         {
-
+            HttpClient http = new HttpClient();
+            var kq = await http.GetStringAsync("http://192.168.1.10/doanie307/api/HelloWebAPIController/Login?UserName=" + EntUsrName.Text + "&PassWord=" + EntPassword.Text);
+            var nd = JsonConvert.DeserializeObject<Account>(kq);
+            if (nd.UserName != "" && nd.UserName != null)
+            {
+                await DisplayAlert("Thông báo", "Chào " + nd.UserName, "OK");
+                Account.usr = nd;
+                await Shell.Current.GoToAsync("//main");
+            }
+            else await DisplayAlert("Thông báo", "Đăng nhập không hợp lệ", "OK");
         }
     }
 }

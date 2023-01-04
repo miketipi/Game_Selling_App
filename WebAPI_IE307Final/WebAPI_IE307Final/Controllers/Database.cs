@@ -122,10 +122,10 @@ namespace WebAPI_IE307Final.Controllers
                 kq.RealName = tb.Rows[0]["RealName"].ToString();
                 kq.UserName = tb.Rows[0]["UserName"].ToString();
                 kq.Email = tb.Rows[0]["Email"].ToString();
-                kq.PassWord = tb.Rows[0]["PassWord"].ToString();
+                kq.PWD = tb.Rows[0]["PWD"].ToString();
             }
             else
-                kq.UserID = 0;
+                kq.UserID = 0; //Neu ko tim ra user thi ma user = 0 va se ko cho dang nhap o ung dung
             return kq;
         }
     }

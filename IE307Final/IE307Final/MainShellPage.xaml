@@ -88,9 +88,13 @@
             </Style>
         </ResourceDictionary>
     </Shell.Resources>
+    <ShellContent Route="login"
+                  ContentTemplate="{DataTemplate local:LoginPage}">
+
+    </ShellContent>
     <FlyoutItem Title="Trang chủ" Icon="icon_home.png">
         <Tab>
-            <ShellContent ContentTemplate="{DataTemplate local:MainPage}" />
+            <ShellContent Route="main" ContentTemplate="{DataTemplate local:MainPage}" />
         </Tab>
     </FlyoutItem>
     <FlyoutItem Title="Thịnh hành" Icon="trend.png">
@@ -105,7 +109,7 @@
     </FlyoutItem>
     <FlyoutItem Title="Tài khoản" Icon="user.png">
         <Tab>
-            <ShellContent ContentTemplate="{DataTemplate local:Account}" />
+            <ShellContent ContentTemplate="{DataTemplate local:AccountPage}" />
         </Tab>
     </FlyoutItem>
     <FlyoutItem Title="Về chúng tôi" Icon="icon_about.png">

@@ -21,12 +21,12 @@ namespace IE307Final
         }
         public async void CreateGameList()
         {
+
             HttpClient http = new HttpClient();
             var kq = await http.GetStringAsync
               ("http://192.168.1.10/doanie307/api/HelloWebAPIController/LoadGame");
             var lst_game = JsonConvert.DeserializeObject<List<Product>>(kq);
             CV_Trending.ItemsSource = lst_game;
-
         }
         private void CV_Trending_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

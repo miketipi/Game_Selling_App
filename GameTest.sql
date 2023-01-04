@@ -50,7 +50,7 @@ CREATE TABLE [dbo].[Account](
 	[UserName] [nvarchar](500) NULL,
 	[RealName] [nvarchar](500) null,
 	[Phone] [nvarchar](10) NULL,
-	[PassWord] [nvarchar](100) NULL,
+	[PWD] [nvarchar](100) NULL,
 	[Email] [nvarchar](100) NULL,
  CONSTRAINT [PK_NguoiDung] PRIMARY KEY CLUSTERED 
 (
@@ -99,7 +99,7 @@ SET QUOTED_IDENTIFIER ON
 GO
  create proc [dbo].[Login](@usrname nvarchar(100),@pwd nvarchar(100))
  as
- select * from Account where UserName=@usrname and PassWord=@pwd
+ select * from Account where UserName=@usrname and PWD=@pwd
 GO
 /* Lay list loai game tu csdl*/
 SET ANSI_NULLS ON

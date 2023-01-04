@@ -14,5 +14,7 @@ namespace WebAPI_IE307Final.Models
         public int Game_Type { get; set; }
         public float Rating { get; set; }
         public float Price { get; set; }
+        public string Platform { get; set; }
+        public bool Status { get; set; }
     }
 }

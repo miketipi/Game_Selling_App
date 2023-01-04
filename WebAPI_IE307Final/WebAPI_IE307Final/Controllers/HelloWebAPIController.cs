@@ -58,5 +58,19 @@ namespace WebAPI_IE307Final.Controllers
                 return NotFound();
             }
         }
+        [Route("api/HelloWebAPIController/Login")]
+        [HttpGet]
+        public IHttpActionResult Login(string UserName, string PassWord)
+        {
+            try
+            {
+                Account acc = Database.Login(UserName, PassWord);
+                return Ok(acc);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
     }
 }
