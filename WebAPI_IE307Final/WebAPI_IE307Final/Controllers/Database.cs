@@ -128,5 +128,17 @@ namespace WebAPI_IE307Final.Controllers
                 kq.UserID = 0; //Neu ko tim ra user thi ma user = 0 va se ko cho dang nhap o ung dung
             return kq;
         }
+        public static Account AddUser(Account nd)
+        {
+            Dictionary<string, object> param = new Dictionary<string, object>();
+            param.Add("realname", nd.RealName);
+            param.Add("usrname", nd.UserName);
+            param.Add("pwd", nd.PWD);
+            param.Add("Email", nd.Email);
+            int kq = int.Parse(Exec_Command("AddUser", param).ToString());
+            if (kq > -1)
+                nd.UserID = kq;
+            return nd;
+        }
     }
 }

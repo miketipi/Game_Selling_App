@@ -72,5 +72,19 @@ namespace WebAPI_IE307Final.Controllers
                 return NotFound();
             }
         }
+        [Route("api/HelloWebAPIController/AddUser")]
+        [HttpPost]
+        public IHttpActionResult AddUser (Account nd)
+        {
+            try
+            {
+                Account kq = Database.AddUser(nd);
+                return Ok(kq);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
     }
 }

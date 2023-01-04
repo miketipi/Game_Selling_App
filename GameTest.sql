@@ -135,6 +135,22 @@ create proc [dbo].[LoadGame]
 as
 select * from game
 GO
+/****** Object:  StoredProcedure [dbo].[AddUser]  */
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+create proc [dbo].[AddUser](@realname nvarchar(500),@usrname nvarchar(100),@pwd nvarchar(100),@email nvarchar(100),@CurrentID int output)
+as
+if(exists(select * from Account where UserName=@usrname or Email=@Email))
+ begin
+ set @CurrentID=-1
+ return
+ end
+ insert into Account(RealName,UserName,PWD,Email) values(@realname,@usrname,@pwd,@Email)
+ set @CurrentID=@@IDENTITY
+GO
 <<<<<<< HEAD
 SET IDENTITY_INSERT game ON;
 Go
@@ -178,9 +194,9 @@ SET IDENTITY_INSERT loaigame OFF;
 
 SET IDENTITY_INSERT Account ON;
 GO
-insert into Account (UserID, UserName, Phone,PassWord,Email,RealName)
+insert into Account (UserID, UserName, Phone,PWD,Email,RealName)
 values ('1','admin','036182673','123456','lmao@gmail.com','abcxyz');
-insert into Account (UserID, UserName, Phone,PassWord,Email,RealName)
+insert into Account (UserID, UserName, Phone,PWD,Email,RealName)
 values ('2','phuc','036182673','123456','lmao@gmail.com',N'Phúc');
 SET IDENTITY_INSERT Account OFF;
 
@@ -193,3 +209,4 @@ SET IDENTITY_INSERT CTDonHang ON
 insert into CTDonHang (Ma_CTDH,Ma_DH,ProductID,So_Luong,Price,Total)
 values ('1','12354','3971273','1','120000','120000');
 SET IDENTITY_INSERT CTDonHang OFF
+select * from account
