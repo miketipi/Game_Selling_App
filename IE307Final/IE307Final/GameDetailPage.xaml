@@ -4,25 +4,80 @@
              x:Class="IE307Final.GameDetailPage">
     <ContentPage.Content>
         <StackLayout>
-            <ScrollView x:Name="Scroll_ChiTiet" Orientation="Vertical">
-                <StackLayout>
-                    <Image Aspect="AspectFit"
-                           HeightRequest="150"
-                           Source="{Binding Game_Img}" />
-                    <StackLayout>
-                        <StackLayout>
-                            <StackLayout>
-                                <Label FontSize="18"
-                                       FontAttributes="Bold"
-                                       TextColor="Black" Text="{Binding Name}"/>
-                                <Label Text="{Binding Price, StringFormat='{0:F2} vnđ'}" />
-                            </StackLayout>
-                            <StackLayout>
-                                <Label FontSize="18"
-                                       FontAttributes="Bold"
-                                       TextColor="Black" Text="{Binding Description}"/>
-                            </StackLayout>
-                        </StackLayout>
+            <ScrollView x:Name ="View_GameDetails">
+                <StackLayout Padding="10">
+                    <Image Source = "https://hoanghapc.vn/media/news/2804_cau-hinh-choi-cs-go-6.png"></Image>
+                    <Label Text="Counter strike - Global Offensive"
+                           FontSize= "30"
+                           FontAttributes= "Bold"
+                           TextColor="Red"
+                           Grid.Column="0"
+                           Grid.Row="1"></Label>
+                    <StackLayout Orientation="Horizontal"
+                                 Grid.Row="2"
+                                 Grid.ColumnSpan="2">
+                        <Label Text="Thể loại : "
+                           FontSize="Body"
+                           FontAttributes="Bold"
+                           TextColor ="Black"></Label>
+                        <!--Binding Type Name-->
+                        <Label Text="{Binding Type_Name}" 
+                               FontSize="Body"
+                               FontAttributes="Bold"
+                               TextColor="Black"></Label>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal"
+                                 Grid.Row="3"
+                                 Grid.ColumnSpan="2">
+                        <Label Text="Rating: "
+                           FontSize="Body"
+                           FontAttributes="Bold"
+                           TextColor="Black"></Label>
+                        <Label Text="4.5/5"
+                               FontSize ="Body"
+                               FontAttributes="Bold"
+                               TextColor="Black"></Label>
+                    </StackLayout>
+                    <Label Text="Platform : PC"
+                           FontSize="Body"
+                           FontAttributes="Bold"
+                           TextColor="Black"
+                           Grid.Column="0"
+                           Grid.Row="4"></Label>
+                    <Label Text="Giá: 350000đ"
+                           FontSize="Body"
+                           FontAttributes="Bold"
+                           TextColor="Black"
+                           Grid.Column="0"
+                           Grid.Row="5"></Label>
+                    <Label Text="Chi tiết sản phẩm"
+                           FontSize="20"
+                           FontAttributes="Bold"
+                           TextColor="Black"
+                           Grid.Column="0"
+                           Grid.Row="6"></Label>
+                    <Label Text="Là một trò chơi bắn súng góc nhìn thứ nhất được phát triển bởi Vavle, ra mắt vào năm 2012"
+                           FontSize="Body"
+                           FontAttributes="Bold"
+                           TextColor="Black"
+                           HorizontalTextAlignment="Center"
+                           Grid.Column="0"
+                           Grid.Row="7"
+                           Grid.ColumnSpan="2"></Label>
+                    <StackLayout HorizontalOptions="Center">
+                        <ImageButton
+                            HorizontalOptions="Center"
+                            Source="https://cdn2.iconfinder.com/data/icons/media-player-ui/512/Media-Icon-25-512.png" 
+                            HeightRequest="50" 
+                            WidthRequest="50" 
+                            CornerRadius="25" 
+                            BackgroundColor ="#695dd4"/>
+                        <Button x:Name="Btn_Add" 
+                            Text= "Thêm vào giỏ hàng" 
+                            VerticalOptions="Center"
+                            CornerRadius="25"
+                            WidthRequest="100" 
+                            BackgroundColor="Red"></Button>
                     </StackLayout>
                 </StackLayout>
             </ScrollView>
