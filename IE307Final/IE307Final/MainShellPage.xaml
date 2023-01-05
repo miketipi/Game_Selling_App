@@ -120,9 +120,12 @@
     <MenuItem Text="Hỗ trợ" IconImageSource="HelpIcon.png" Command="{Binding HelpCommand}"
               CommandParameter="https://learn.microsoft.com/en-us/xamarin/">
     </MenuItem>
-    <TabBar>
-        <ShellContent ContentTemplate="{DataTemplate local:LoginPage}" />
-    </TabBar>
+    <FlyoutItem Title="Đăng xuất"
+                Icon="logout.png">
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate local:LoginPage}" />
+        </Tab>
+    </FlyoutItem>
     <Shell.FlyoutFooter>
         <local:Footer></local:Footer>
     </Shell.FlyoutFooter>

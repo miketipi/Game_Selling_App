@@ -7,6 +7,7 @@ namespace IE307Final
     public class Account
     {
         public int UserID { get; set; }
+        public string RealName { get; set; }
         public string UserName { get; set; }
         public string PWD { get; set; }
         public string Role { get; set; }

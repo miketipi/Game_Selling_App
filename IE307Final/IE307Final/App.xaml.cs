@@ -10,8 +10,10 @@ namespace IE307Final
         public App()
         {
             InitializeComponent();
-
             MainPage = new MainShellPage();
+            Account.usr = new Account();
+            Account.usrCart = new Cart();
+            Account.usrCart.GameList = new System.Collections.Generic.List<Product>();
         }
 
         protected override void OnStart()

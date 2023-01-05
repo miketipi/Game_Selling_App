@@ -18,71 +18,99 @@
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*">
+                    <ColumnDefinition Width="1.4*">
                     </ColumnDefinition>
                     <ColumnDefinition Width="2*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Label Text="Email:"
+                <Label Text="Tên:"
                        Grid.Row="0"
                        Grid.Column="0"
-                       FontSize="10"
+                       FontSize="15"
+                       VerticalOptions="Center"
+                       TextColor="White" />
+                <Entry Keyboard="Text"
+                       x:Name="EntRealName"
+                       VerticalOptions="Center"
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       Placeholder="Nhập tên"
+                       PlaceholderColor="White" />
+                <Label Text="Email:"
+                       Grid.Row="1"
+                       Grid.Column="0"
+                       FontSize="15"
                        VerticalOptions="Center"
                        TextColor="White" />
                 <Entry Keyboard="Text"
                        x:Name="EntEmail"
                        VerticalOptions="Center"
-                       Grid.Row="0"
+                       Grid.Row="1"
                        Grid.Column="1"
                        Placeholder="@email"
                        PlaceholderColor="White" />
                 <Label Text="Số điện thoại:"
-                       Grid.Row="1"
+                       Grid.Row="2"
                        Grid.Column="0"
-                       FontSize="10"
+                       FontSize="15"
                        VerticalOptions="Center"
                        TextColor="White" />
                 <Entry Keyboard="Text"
                        x:Name="EntPhoneNumber"
                        VerticalOptions="Center"
-                       Grid.Row="1"
+                       Grid.Row="2"
                        Grid.Column="1"
-                       Placeholder="@username"
+                       Placeholder="@phone"
                        PlaceholderColor="White" />
                 <Label Text="Tên đăng nhập:"
-                       Grid.Row="2"
+                       Grid.Row="3"
                        Grid.Column="0"
-                       FontSize="10"
+                       FontSize="15"
                        VerticalOptions="Center"
                        TextColor="White" />
                 <Entry Keyboard="Text"
                        x:Name="EntUsrName"
                        VerticalOptions="Center"
-                       Grid.Row="2"
+                       Grid.Row="3"
                        Grid.Column="1"
                        Placeholder="@username"
                        PlaceholderColor="White" />
                 <Label Text="Mật khẩu: "
-                       Grid.Row="3"
+                       Grid.Row="4"
                        Grid.Column="0"
-                       FontSize="10"
+                       FontSize="15"
                        VerticalOptions="Center"
                        TextColor="White" />
                 <Entry Keyboard="Text"
                        x:Name="EntPassword"
                        VerticalOptions="Center"
-                       Grid.Row="3"
+                       Grid.Row="4"
+                       Grid.Column="1"
+                       PlaceholderColor="White"
+                       Placeholder="Password"></Entry>
+                <Label Text="Nhập lại mật khẩu: "
+                       Grid.Row="5"
+                       Grid.Column="0"
+                       FontSize="15"
+                       VerticalOptions="Center"
+                       TextColor="White" />
+                <Entry Keyboard="Text"
+                       x:Name="EntPasswordAgain"
+                       VerticalOptions="Center"
+                       Grid.Row="5"
                        Grid.Column="1"
                        PlaceholderColor="White"
                        Placeholder="Password"></Entry>
                 <Button x:Name="Btn_SignUp"
                         Clicked="Btn_SignUp_Clicked"
                         Grid.ColumnSpan="2"
-                        Grid.Row="4"
-                        BackgroundColor="{StaticResource PinkColor}"
+                        Grid.Row="6"
+                        BackgroundColor="WhiteSmoke"
                         Text="Đăng kí"
-                        TextColor="White"
+                        TextColor="Black"
                         FontSize="16"
                         FontAttributes="Bold" />
             </Grid>
