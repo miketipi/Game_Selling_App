@@ -15,7 +15,6 @@ namespace IE307Final
         public float Price { get; set; }
         public bool Status { get; set; }
         public string Platform { get; set; }
-        
 
     }
 }

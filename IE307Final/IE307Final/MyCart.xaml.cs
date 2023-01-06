@@ -22,14 +22,8 @@ namespace IE307Final
 
         }
 
-        private void cmdxoa_Clicked(object sender, EventArgs e)
+        private void btn_Xoa_Clicked(object sender, EventArgs e)
         {
 
         }
-
-        private void cmdCapnhat_Clicked(object sender, EventArgs e)
-        {
-
-        }
-    }
 }

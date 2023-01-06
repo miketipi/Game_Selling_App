@@ -4,71 +4,48 @@
              x:Class="IE307Final.MyCart">
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="lstgiohang"
-                      HasUnevenRows="True">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition></RowDefinition>
-                                    <RowDefinition></RowDefinition>
-                                    <RowDefinition></RowDefinition>
-                                    <RowDefinition />
-                                    <RowDefinition />
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                    <ColumnDefinition Width="2*"></ColumnDefinition>
-                                </Grid.ColumnDefinitions>
-                                <Image Source="{Binding Game_Img}"
-                                       Grid.Column="0"
-                                       Grid.Row="0"
-                                       Grid.RowSpan="3" />
-                                <Label Text="{Binding Name}"
-                                       Grid.Column="1"
-                                       Grid.Row="0"
-                                       VerticalOptions="Start"
-                                       TextColor="Red"
-                                       FontSize="20" />
-                                <Label Text="{Binding Price}"
-                                       Grid.Column="1"
-                                       Grid.Row="1"
-                                       FontSize="16"
-                                       VerticalOptions="Start"
-                                       TextColor="Blue" />
-                                <Label Text="{Binding Description}"
-                                       Grid.Column="1"
-                                       Grid.Row="2"
-                                       FontSize="16"
-                                       VerticalOptions="Start" />
-                                <Button x:Name="cmdCapnhat"
+            <StackLayout>
+                <Grid RowDefinitions="Auto,Auto,*" Padding="20,55,20,0">
+                    <!-- 4.  Game list-->
+                    <!--<CollectionView VerticalScrollBarVisibility="Never" Grid.Row="2">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>-->
+                    <Grid ColumnDefinitions="*" Padding="0,20" VerticalOptions="Center">
+                        <Frame Grid.Column="0" HorizontalOptions="Fill" HasShadow="False" BackgroundColor="#f2f1f8" CornerRadius="10">
+                            <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto,Auto" Padding="125,0,0,0">
+                                <!--Binding Name-->
+                                <Label Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Text="Counter Strike - Global Offensive" FontAttributes="Bold"/>
+                                <!--Binding Game Type-->
+                                <Label Grid.Column="0" Grid.Row="1" Text="FPS" FontAttributes="Bold" TextColor="Silver"/>
+                                <!--Binding Rating-->
+                                <Label Grid.Column="0" Grid.Row="2" Text="4.5/5" FontAttributes="Bold" />
+                                <!--Binding Price-->
+                                <Label Grid.Column="1" Grid.Row="2" Text="350000đ" FontAttributes="Bold" FontSize="18" TextColor="Silver"/>
+                            </Grid>
+                        </Frame>
+                        <Frame Grid.Column="0" BorderColor="Transparent" HorizontalOptions="Start" VerticalOptions="Start" WidthRequest="125" HeightRequest="135" HasShadow="False"  CornerRadius="10" Padding="0" IsClippedToBounds="True">
+                            <Image Source="https://cdn.akamai.steamstatic.com/steam/apps/730/capsule_616x353.jpg?t=1668125812" Aspect="Fill"/>
+                        </Frame>
+                        <Frame>
+                            <Button x:Name="btn_Xoa"
                                         Text="Cập Nhật"
                                         Grid.Column="0"
                                         Grid.Row="3"
-                                        Clicked="cmdCapnhat_Clicked" />
-                                <Button x:Name="cmdxoa"
-                                        Text="Xóa"
-                                        Grid.Column="1"
-                                        Grid.Row="3"
-                                        Clicked="cmdxoa_Clicked" />
-                            </Grid>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-            <Editor x:Name="txtdiachigiaohang"
-                    Placeholder="Địa chỉ giao hàng"
-                    HeightRequest="50" />
-            <Editor x:Name="txtdiachiloinhan"
-                    Placeholder="Lời Nhắn"
-                    HeightRequest="50" />
-            <Button x:Name="cmdMuahang"
-                    Text="Mua Hàng"
-                    VerticalOptions="Center"
-                    Clicked="cmdMuahang_Clicked" />
-
-
+                                        Clicked="btn_Xoa_Clicked" />
+                        </Frame>
+                    </Grid>
+                    <!--</DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>-->
+                </Grid>
+                        <Button x:Name="Btn_Buy"
+                                HorizontalOptions="Center"
+                                Text= "Thanh toán"
+                                CornerRadius="25"
+                                WidthRequest="300"
+                                BackgroundColor="Red"
+                                Clicked="btn_Buy_Clicked"></Button>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

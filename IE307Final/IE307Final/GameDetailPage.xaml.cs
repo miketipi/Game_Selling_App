@@ -23,7 +23,15 @@ namespace IE307Final
             InitializeComponent();
             _game = a;
             Title = _game.Name;
-            Scroll_ChiTiet.BindingContext = a;
+            /*Scroll_ChiTiet.BindingContext = a;*/
+        }
+        private void Btn_AddToBuy_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new MyCart());
+        }
+        private void Btn_Loving_Clicked(object sender, EventArgs e)
+        {
+
         }
     }
 }

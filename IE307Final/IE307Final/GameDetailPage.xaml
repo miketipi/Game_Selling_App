@@ -92,12 +92,12 @@
                             Clicked="Btn_Loving_Clicked"
                             BackgroundColor ="#695dd4"/>
                         <!--Add Button-->
-                        <Button x:Name="Btn_Add"
+                        <Button x:Name="Btn_AddToBuy"
                             HorizontalOptions="Center"
-                            Text= "Thêm vào giỏ hàng"
+                            Text= "Thanh toán"
                             CornerRadius="25"
                             WidthRequest="300"
-                            Clicked="Btn_Add_Clicked"
+                            Clicked="Btn_AddtoBuy_Clicked"
                             BackgroundColor="Red"></Button>
                     </StackLayout>
                 </StackLayout>
