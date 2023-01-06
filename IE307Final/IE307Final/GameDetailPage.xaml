@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IE307Final.GameDetailPage">
+
     <ContentPage.Content>
         <StackLayout>
             <ScrollView x:Name ="View_GameDetails">
@@ -30,57 +31,78 @@
                                  Grid.Row="3"
                                  Grid.ColumnSpan="2">
                         <Label Text="Rating: "
-                           FontSize="Body"
-                           FontAttributes="Bold"
-                           TextColor="Black"></Label>
+                               FontSize="Body"
+                               FontAttributes="Bold"
+                               TextColor="Black"></Label>
+                        <!--Binding Rating-->
                         <Label Text="4.5/5"
                                FontSize ="Body"
                                FontAttributes="Bold"
                                TextColor="Black"></Label>
                     </StackLayout>
-                    <Label Text="Platform : PC"
+                    <StackLayout Orientation="Horizontal"
+                                 Grid.Row="4"
+                                 Grid.ColumnSpan="2">
+                        <Label Text="Platform :"
                            FontSize="Body"
                            FontAttributes="Bold"
-                           TextColor="Black"
-                           Grid.Column="0"
-                           Grid.Row="4"></Label>
-                    <Label Text="Giá: 350000đ"
+                           TextColor="Black"></Label>
+                        <!--Binding Platform-->
+                        <Label Text="PC"
                            FontSize="Body"
                            FontAttributes="Bold"
-                           TextColor="Black"
-                           Grid.Column="0"
-                           Grid.Row="5"></Label>
-                    <Label Text="Chi tiết sản phẩm"
+                           TextColor="Black"></Label>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal"
+                                 Grid.Row="5"
+                                 Grid.ColumnSpan="2">
+                        <Label Text="Giá: "
+                           FontSize="Body"
+                           FontAttributes="Bold"
+                           TextColor="Black"></Label>
+                        <!--Binding Price-->
+                        <Label Text="350000đ"
+                           FontSize="Body"
+                           FontAttributes="Bold"
+                           TextColor="Black"></Label>
+                    </StackLayout>
+                        <Label Text="Chi tiết sản phẩm"
                            FontSize="20"
                            FontAttributes="Bold"
                            TextColor="Black"
                            Grid.Column="0"
                            Grid.Row="6"></Label>
-                    <Label Text="Là một trò chơi bắn súng góc nhìn thứ nhất được phát triển bởi Vavle, ra mắt vào năm 2012"
+                    <!--Binding Description-->
+                        <Label Text="Là một trò chơi bắn súng góc nhìn thứ nhất được phát triển bởi Vavle, ra mắt vào năm 2012"
                            FontSize="Body"
                            FontAttributes="Bold"
-                           TextColor="Black"
+                           TextColor="Silver"
                            HorizontalTextAlignment="Center"
                            Grid.Column="0"
                            Grid.Row="7"
                            Grid.ColumnSpan="2"></Label>
-                    <StackLayout HorizontalOptions="Center">
+                    <StackLayout Orientation="Horizontal">
+                        <!--Binding Hearticon-->
                         <ImageButton
                             HorizontalOptions="Center"
                             Source="https://cdn2.iconfinder.com/data/icons/media-player-ui/512/Media-Icon-25-512.png" 
                             HeightRequest="50" 
                             WidthRequest="50" 
                             CornerRadius="25" 
+                            Clicked="Btn_Loving_Clicked"
                             BackgroundColor ="#695dd4"/>
-                        <Button x:Name="Btn_Add" 
-                            Text= "Thêm vào giỏ hàng" 
-                            VerticalOptions="Center"
+                        <!--Add Button-->
+                        <Button x:Name="Btn_Add"
+                            HorizontalOptions="Center"
+                            Text= "Thêm vào giỏ hàng"
                             CornerRadius="25"
-                            WidthRequest="100" 
+                            WidthRequest="300"
+                            Clicked="Btn_Add_Clicked"
                             BackgroundColor="Red"></Button>
                     </StackLayout>
                 </StackLayout>
             </ScrollView>
         </StackLayout>
     </ContentPage.Content>
+    
 </ContentPage>
