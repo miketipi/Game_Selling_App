@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.Net.Http;
+using Newtonsoft.Json;
 
 namespace IE307Final
 {
@@ -15,11 +17,32 @@ namespace IE307Final
         public MyCart()
         {
             InitializeComponent();
+            lstgiohang.ItemsSource = Account.usrCart.GameList;
         }
 
-        private void cmdMuahang_Clicked(object sender, EventArgs e)
+        private async void cmdMuahang_Clicked(object sender, EventArgs e)
         {
+            if(Account.usr.UserID==0)
+            {
+                await DisplayAlert("Thông báo", "Bạn chưa đăng nhập", "OK");
+                return;
+            }
+            Account.usrCart.UserID = Account.usr.UserID;
+            HttpClient http = new HttpClient();
+            string jsonlh = JsonConvert.SerializeObject(Account.usrCart);
+            StringContent httpcontent = new StringContent(jsonlh, Encoding.UTF8, "application/json");
+            HttpResponseMessage kq;
 
+            kq = await http.PostAsync("http://" + BoSung.DiaChiIPMay + "", httpcontent);
+            var kqtv = await kq.Content.ReadAsStringAsync();
+            if (int.Parse(kqtv.ToString()) > 0)
+            {
+                await DisplayAlert("Thông báo", "Thêm vào giỏ hàng thành công", "OK");
+
+                Account.usrCart.GameList = new List<Product>();
+            }
+            else
+                await DisplayAlert("Thông báo", "Thêm dữ liệu bị lỗi", "OK");
         }
 
         private void cmdxoa_Clicked(object sender, EventArgs e)

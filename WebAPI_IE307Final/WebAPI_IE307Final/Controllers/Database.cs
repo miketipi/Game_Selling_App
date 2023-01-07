@@ -140,5 +140,27 @@ namespace WebAPI_IE307Final.Controllers
                 nd.UserID = kq;
             return nd;
         }
+        public static int AddCart(Cart crt)
+        {
+            DataTable tb = new DataTable();
+            tb.Columns.Add("Product_ID", typeof(int));
+            tb.Columns.Add("price", typeof(float));
+            tb.Columns.Add("total", typeof(float));
+            foreach(Product p in crt.GameList)
+            {
+                DataRow r = tb.NewRow();
+                r["Product_ID"] = p.ProductID;
+                r["price"] = p.Price;
+                r["total"] = p.Price;
+                tb.Rows.Add(r);
+            }
+            tb.AcceptChanges();
+            Dictionary<string, object> param = new Dictionary<string, object>();
+            param.Add("usrID", crt.UserID);
+            param.Add("t", tb);
+            int kq = int.Parse(Exec_Command("Add_Cart", param).ToString());
+
+            return kq;
+        }
     }
 }

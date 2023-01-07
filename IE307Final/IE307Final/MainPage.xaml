@@ -34,13 +34,19 @@
                                 <StackLayout Orientation="Horizontal">
                                     <StackLayout Margin="10,0,10,0">
                                         <Frame HeightRequest="100"
-                                           WidthRequest="100"
-                                           CornerRadius="45">
-                                        <Image Aspect="AspectFit"
-                                               Source="action.png" />
+                                               WidthRequest="100"
+                                               CornerRadius="45">
+                                            <Image Aspect="AspectFit"
+                                                   Source="TPS.png">
+                                                <Image.GestureRecognizers>
+                                                    <TapGestureRecognizer x:Name="TPS"
+                                                                          Tapped="TPS_Tapped"
+                                                                          NumberOfTapsRequired="1"></TapGestureRecognizer>
+                                                </Image.GestureRecognizers>
+                                            </Image>
                                         </Frame>
                                         <Label FontSize="18"
-                                           Text="Hành động"
+                                               Text="Bắn súng góc nhìn thứ ba"
                                                HorizontalOptions="CenterAndExpand"
                                                FontAttributes="Bold" />
                                     </StackLayout>
@@ -49,17 +55,97 @@
                                                WidthRequest="100"
                                                CornerRadius="45">
                                             <Image Aspect="AspectFit"
-                                                   Source="puzzle.png" />
+                                                   Source="fps.png">
+                                                <Image.GestureRecognizers>
+                                                    <TapGestureRecognizer x:Name="FPS"
+                                                                          Tapped="FPS_Tapped"
+                                                                          NumberOfTapsRequired="1"></TapGestureRecognizer>
+                                                </Image.GestureRecognizers>
+                                            </Image>
                                         </Frame>
                                         <Label FontSize="18"
-                                               Text="Giải đố"  HorizontalOptions="CenterAndExpand" FontAttributes="Bold"/>
+                                               Text="Bắn súng góc nhìn thứ nhất"
+                                               HorizontalOptions="CenterAndExpand"
+                                               FontAttributes="Bold" />
                                     </StackLayout>
                                     <StackLayout Margin="10,0,10,0">
                                         <Frame HeightRequest="100"
                                                WidthRequest="100"
                                                CornerRadius="45">
                                             <Image Aspect="AspectFit"
-                                                   Source="sport.png" />
+                                                   Source="racing.png" />
+                                        </Frame>
+                                        <Label FontSize="18"
+                                               Text="Đua xe"
+                                               HorizontalOptions="CenterAndExpand"
+                                               FontAttributes="Bold" />
+                                    </StackLayout>
+                                    <StackLayout Margin="10,0,10,0">
+                                        <Frame HeightRequest="100"
+                                               WidthRequest="100"
+                                               CornerRadius="45">
+                                            <Image Aspect="AspectFit"
+                                                   Source="pvp.png">
+                                                <Image.GestureRecognizers>
+                                                    <TapGestureRecognizer x:Name="PVP"
+                                                                          Tapped="PVP_Tapped"
+                                                                          NumberOfTapsRequired="1"></TapGestureRecognizer>
+                                                </Image.GestureRecognizers>
+                                            </Image>
+                                        </Frame>
+                                        <Label FontSize="18"
+                                               Text="Đối kháng"
+                                               HorizontalOptions="CenterAndExpand"
+                                               FontAttributes="Bold" />
+                                    </StackLayout>
+                                    <StackLayout Margin="10,0,10,0">
+                                        <Frame HeightRequest="100"
+                                               WidthRequest="100"
+                                               CornerRadius="45">
+                                            <Image Aspect="AspectFit"
+                                                   Source="action.png">
+                                                <Image.GestureRecognizers>
+                                                    <TapGestureRecognizer x:Name="action"
+                                                                          Tapped="Action_Tapped"
+                                                                          NumberOfTapsRequired="1"></TapGestureRecognizer>
+                                                </Image.GestureRecognizers>
+                                            </Image>
+                                        </Frame>
+                                        <Label FontSize="18"
+                                               Text="Hành động"
+                                               HorizontalOptions="CenterAndExpand"
+                                               FontAttributes="Bold" />
+                                    </StackLayout>
+                                    <StackLayout Margin="10,0,10,0">
+                                        <Frame HeightRequest="100"
+                                               WidthRequest="100"
+                                               CornerRadius="45">
+                                            <Image Aspect="AspectFit"
+                                                   Source="puzzle.png">
+                                                <Image.GestureRecognizers>
+                                                    <TapGestureRecognizer x:Name="puzzle"
+                                                                          Tapped="Puzzle_Tapped"
+                                                                          NumberOfTapsRequired="1"></TapGestureRecognizer>
+                                                </Image.GestureRecognizers>
+                                            </Image>
+                                        </Frame>
+                                        <Label FontSize="18"
+                                               Text="Giải đố"
+                                               HorizontalOptions="CenterAndExpand"
+                                               FontAttributes="Bold" />
+                                    </StackLayout>
+                                    <StackLayout Margin="10,0,10,0">
+                                        <Frame HeightRequest="100"
+                                               WidthRequest="100"
+                                               CornerRadius="45">
+                                            <Image Aspect="AspectFit"
+                                                   Source="sport.png">
+                                                <Image.GestureRecognizers>
+                                                    <TapGestureRecognizer x:Name="sport"
+                                                                          Tapped="sport_Tapped"
+                                                                          NumberOfTapsRequired="1"></TapGestureRecognizer>
+                                                </Image.GestureRecognizers>
+                                            </Image>
                                         </Frame>
                                         <Label FontSize="18"
                                                Text="Thể thao"
@@ -71,7 +157,7 @@
                                                WidthRequest="100"
                                                CornerRadius="45">
                                             <Image Aspect="AspectFit"
-                                                   Source="puzzle.png" />
+                                                   Source="stimulate.png" />
                                         </Frame>
                                         <Label FontSize="18"
                                                Text="Nhập vai"
@@ -209,7 +295,6 @@
                                                                    Source="{Binding Game_Img}"
                                                                    WidthRequest="120"
                                                                    HeightRequest="120" />
-
                                                         </Frame>
                                                     </StackLayout>
                                                     <StackLayout>

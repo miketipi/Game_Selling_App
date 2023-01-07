@@ -15,7 +15,7 @@ create table [dbo].[game](
 [Game_Type] [int] null,
 [Name] [nvarchar](250) null,
 [Price] [float] null,
-[Game_Img] [nvarchar](250) null,
+[Game_Img] [nvarchar](max) null,
 [Rating] [float] null,
 [Description] [nvarchar](max) null,
 [Status] [bit] null,
@@ -151,29 +151,82 @@ if(exists(select * from Account where UserName=@usrname or Email=@Email))
  insert into Account(RealName,UserName,PWD,Email) values(@realname,@usrname,@pwd,@Email)
  set @CurrentID=@@IDENTITY
 GO
+/* Them the loai game */
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROC [dbo].[Add_Game_Type](@tenloai nvarchar(200),@CurrentID int output)
+as
+begin try
+
+if(exists(select * from loaigame where Type_Name=@tenloai))
+ begin
+  set @CurrentID=0
+  return
+ end
+insert into loaigame(Game_Type)values(@tenloai)
+set @CurrentID=@@IDENTITY
+end try
+begin catch
+ set @CurrentID=0
+ end catch
+GO
+/* Them vao don hang */
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create proc [dbo].[Add_Cart](@usrID int,
+@t Cart readonly,@Currentid int output)
+as
+begin try
+declare @madh int
+insert into Don_Hang([UserID] ,[Ngay_mua] ,[Tinh_Trang_Don_Hang])
+values(@usrID,getdate(),1)
+set @madh=@@IDENTITY
+insert into [CTDonHang]([Ma_DH],[ProductID],[Price]  ,[Total])
+select @madh,Product_ID  ,  Price , Total
+from @t
+set @Currentid=@madh
+end try
+begin catch
+set @Currentid=-1
+end catch
+GO
+/*Hien thi gio hang */
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create proc [dbo].[LoadCart]
+as
+select * from Cart
+GO
+
 <<<<<<< HEAD
 SET IDENTITY_INSERT game ON;
 Go
 insert into game (ProductID, Game_Type, Name, Price, Game_Img, Rating, Description, Status, Platform)
-values ('1000','1','Left 4 dead 2','120000','','3.5',N'là một trò chơi bắn súng góc nhìn thứ nhất','1','PC');
+values ('1000','1','Left 4 dead 2','120000','https://en.wikipedia.org/wiki/Left_4_Dead_2#/media/File:Left4Dead2.jpg','3.5',N'là một trò chơi bắn súng góc nhìn thứ nhất','1','PC');
 insert into game (ProductID, Game_Type, Name, Price, Game_Img, Rating, Description, Status, Platform)
-values ('1001','1','Counter-strike Global Offensive',N'350000','','4.5',N'là một trò chơi bắn súng fps','1','PC');
+values ('1001','1','Counter-strike Global Offensive',N'350000','https://didongviet.vn/dchannel/wp-content/uploads/2022/10/csgo-di-dong-viet-14.jpg','4.5',N'là một trò chơi bắn súng fps','1','PC');
 insert into game (ProductID, Game_Type, Name, Price, Game_Img, Rating, Description, Status, Platform)
-values ('1002','2','Risk of rain 2','180000','','4.0',N'bắn súng góc nhìn thứ ba giống người thật được phát triển bởi Hopoo Games','1','PC');
+values ('1002','2','Risk of rain 2','180000','https://upload.wikimedia.org/wikipedia/en/c/c1/Risk_of_Rain_2.jpg','4.0',N'bắn súng góc nhìn thứ ba giống người thật được phát triển bởi Hopoo Games','1','PC');
 insert into game (ProductID, Game_Type, Name, Price, Game_Img, Rating, Description, Status, Platform)
-values ('1003','3','GTA V','500000','','3.8',N'Grand Theft Auto V là một trò chơi điện tử hành động phiêu lưu năm 2013','1','PC');
+values ('1003','3','GTA V','500000','https://gamedva.com/wp-content/uploads/GTA-5-Grand-Theft-Auto-V.jpg','3.8',N'Grand Theft Auto V là một trò chơi điện tử hành động phiêu lưu năm 2013','1','PC');
 insert into game (ProductID, Game_Type, Name, Price, Game_Img, Rating, Description, Status, Platform)
-values ('1004','3','Hero Siege','120000','','3.2',N'Hero Siege là một trò chơi Slash của Hack với các yếu tố roguelike- & RPG','0','Console');
+values ('1004','3','Hero Siege','120000','https://cdn.cloudflare.steamstatic.com/steam/apps/269210/header.jpg?t=1669637809','3.2',N'Hero Siege là một trò chơi Slash của Hack với các yếu tố roguelike- & RPG','0','Console');
 insert into game (ProductID, Game_Type, Name, Price, Game_Img, Rating, Description, Status, Platform) 
-values ('1005','1','Rainbow Six Siege','300000','','3.5',N'là một trò chơi điện tử bắn súng chiến thuật','0','Console');
+values ('1005','1','Rainbow Six Siege','300000','https://image.api.playstation.com/vulcan/ap/rnd/202209/2121/UlfMBx2yUHge8Vlz7eszqw13.png','3.5',N'là một trò chơi điện tử bắn súng chiến thuật','0','Console');
 insert into game (ProductID, Game_Type, Name, Price, Game_Img, Rating, Description, Status, Platform) 
-values ('1006','4','Mario Kart Wii','90000','','5',N'là một trò chơi đua xe kart được phát triển và xuất bản bởi Nintendo cho Wii','0','Console');
+values ('1006','4','Mario Kart Wii','90000','https://m.media-amazon.com/images/M/MV5BNzQ1ZTZmMjctZjk0MS00YTdiLWE5MjEtYjVkZmY3Y2I5MTllXkEyXkFqcGdeQXVyMTAyNzc0MDkz._V1_FMjpg_UX1000_.jpg','5',N'là một trò chơi đua xe kart được phát triển và xuất bản bởi Nintendo cho Wii','0','Console');
 insert into game (ProductID, Game_Type, Name, Price, Game_Img, Rating, Description, Status, Platform)
-values ('1007','3','Pokémon Unite','12000','','4',N'là một trò chơi điện tử đấu trường trực tuyến nhiều người chơi','0','Console');
+values ('1007','3','Pokémon Unite','12000','https://image.thanhnien.vn/w2048/Uploaded/2023/fsmym/2021_08_21/moba-pokemon-unite-ra-mat-tren-android-ios02_eclv.jpg','4',N'là một trò chơi điện tử đấu trường trực tuyến nhiều người chơi','0','Console');
 insert into game (ProductID, Game_Type, Name, Price, Game_Img, Rating, Description, Status, Platform) 
-values ('1008','1','Left 4 dead 2','120000','','3.5',N'là một trò chơi bắn súng góc nhìn thứ nhất','0','Console');
+values ('1008','1','Left 4 dead 2','120000','https://en.wikipedia.org/wiki/Left_4_Dead_2#/media/File:Left4Dead2.jpg','3.5',N'là một trò chơi bắn súng góc nhìn thứ nhất','0','Console');
 insert into game (ProductID, Game_Type, Name, Price, Game_Img, Rating, Description, Status, Platform) 
-values ('1009','1','Left 4 dead 2','120000','','3.5',N'là một trò chơi bắn súng góc nhìn thứ nhất','0','Console');
+values ('1009','1','Left 4 dead 2','120000','https://en.wikipedia.org/wiki/Left_4_Dead_2#/media/File:Left4Dead2.jpg','3.5',N'là một trò chơi bắn súng góc nhìn thứ nhất','0','Console');
 SET IDENTITY_INSERT game OFF;
 
 

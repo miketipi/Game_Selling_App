@@ -24,7 +24,7 @@ namespace IE307Final
 
             HttpClient http = new HttpClient();
             var kq = await http.GetStringAsync
-              ("http://192.168.1.10/doanie307/api/HelloWebAPIController/LoadGame");
+              ("http://" + BoSung.DiaChiIPMay + "/doanie307/api/HelloWebAPIController/LoadGame");
             var lst_game = JsonConvert.DeserializeObject<List<Product>>(kq);
             CV_Trending.ItemsSource = lst_game;
         }
@@ -52,6 +52,36 @@ namespace IE307Final
         {
             Product game = CV_Trending.SelectedItem as Product;
             Navigation.PushAsync(new GameDetailPage(game));
+        }
+
+        private void Action_Tapped(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Puzzle_Tapped(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TPS_Tapped(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FPS_Tapped(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PVP_Tapped(object sender, EventArgs e)
+        {
+
+        }
+
+        private void sport_Tapped(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -86,5 +86,19 @@ namespace WebAPI_IE307Final.Controllers
                 return NotFound();
             }
         }
+        [Route("api/HelloWebAPIController/AddCart")]
+        [HttpPost]
+        public IHttpActionResult AddCart(Cart crt)
+        {
+            try
+            {
+                int kq = Database.AddCart(crt);
+                return Ok(crt);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
     }
 }

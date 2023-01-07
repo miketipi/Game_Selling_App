@@ -31,7 +31,7 @@ namespace IE307Final
         private async void BtnLogin_Clicked(object sender, EventArgs e)
         {
             HttpClient http = new HttpClient();
-            var kq = await http.GetStringAsync("http://192.168.1.10/doanie307/api/HelloWebAPIController/Login?UserName=" + EntUsrName.Text + "&PassWord=" + EntPassword.Text);
+            var kq = await http.GetStringAsync("http://"+ BoSung.DiaChiIPMay + "/doanie307/api/HelloWebAPIController/Login?UserName=" + EntUsrName.Text + "&PassWord=" + EntPassword.Text);
             var nd = JsonConvert.DeserializeObject<Account>(kq);
             if (nd.UserName != "" && nd.UserName != null)
             {
