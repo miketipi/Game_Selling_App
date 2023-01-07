@@ -56,32 +56,58 @@ namespace IE307Final
 
         private void Action_Tapped(object sender, EventArgs e)
         {
-
+            LoaiGame a = new LoaiGame();
+            a.Game_Type = 6;
+            Navigation.PushAsync(new GameTypePage(a));
         }
 
         private void Puzzle_Tapped(object sender, EventArgs e)
         {
-
+            LoaiGame a = new LoaiGame();
+            a.Game_Type = 7;
+            Navigation.PushAsync(new GameTypePage(a));
         }
 
         private void TPS_Tapped(object sender, EventArgs e)
         {
-
+            LoaiGame a = new LoaiGame();
+            a.Game_Type = 2;
+            Navigation.PushAsync(new GameTypePage(a));
         }
 
         private void FPS_Tapped(object sender, EventArgs e)
         {
-
+            LoaiGame a = new LoaiGame();
+            a.Game_Type = 1;
+            Navigation.PushAsync(new GameTypePage(a)); 
         }
 
         private void PVP_Tapped(object sender, EventArgs e)
         {
-
+            LoaiGame a = new LoaiGame();
+            a.Game_Type = 5;
+            Navigation.PushAsync(new GameTypePage(a));
         }
 
         private void sport_Tapped(object sender, EventArgs e)
         {
+            LoaiGame a = new LoaiGame();
+            a.Game_Type = 8;
+            Navigation.PushAsync(new GameTypePage(a));
+        }
 
+        private void stimulate_Tapped(object sender, EventArgs e)
+        {
+            LoaiGame a = new LoaiGame();
+            a.Game_Type = 3;
+            Navigation.PushAsync(new GameTypePage(a));
+        }
+
+        private void racing_Tapped(object sender, EventArgs e)
+        {
+            LoaiGame a = new LoaiGame();
+            a.Game_Type = 4;
+            Navigation.PushAsync(new GameTypePage(a));
         }
     }
 }

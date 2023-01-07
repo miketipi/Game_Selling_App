@@ -230,6 +230,7 @@ values ('1009','1','Left 4 dead 2','120000','https://en.wikipedia.org/wiki/Left_
 SET IDENTITY_INSERT game OFF;
 
 
+
 SET IDENTITY_INSERT loaigame ON;
 Go
 insert into loaigame  (Game_type,Type_Name)
@@ -242,6 +243,12 @@ insert into loaigame  (Game_Type, Type_Name)
 values ('4','Racing');
 insert into loaigame  (Game_Type, Type_Name)
 values ('5','PVP');
+insert into loaigame  (Game_Type, Type_Name)
+values ('6','Action');
+insert into loaigame  (Game_Type, Type_Name)
+values ('7','Puzzle');
+insert into loaigame  (Game_Type, Type_Name)
+values ('8','Sport');
 SET IDENTITY_INSERT loaigame OFF;
 
 

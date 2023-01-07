@@ -73,7 +73,13 @@
                                                WidthRequest="100"
                                                CornerRadius="45">
                                             <Image Aspect="AspectFit"
-                                                   Source="racing.png" />
+                                                   Source="racing.png">
+                                                <Image.GestureRecognizers>
+                                                    <TapGestureRecognizer x:Name="racing"
+                                                                          Tapped="racing_Tapped"
+                                                                          NumberOfTapsRequired="1"></TapGestureRecognizer>
+                                                </Image.GestureRecognizers>
+                                            </Image>
                                         </Frame>
                                         <Label FontSize="18"
                                                Text="Đua xe"
@@ -157,7 +163,13 @@
                                                WidthRequest="100"
                                                CornerRadius="45">
                                             <Image Aspect="AspectFit"
-                                                   Source="stimulate.png" />
+                                                   Source="stimulate.png">
+                                                <Image.GestureRecognizers>
+                                                    <TapGestureRecognizer x:Name="stimulate"
+                                                                          Tapped="stimulate_Tapped"
+                                                                          NumberOfTapsRequired="1"></TapGestureRecognizer>
+                                                </Image.GestureRecognizers>
+                                            </Image>
                                         </Frame>
                                         <Label FontSize="18"
                                                Text="Nhập vai"
