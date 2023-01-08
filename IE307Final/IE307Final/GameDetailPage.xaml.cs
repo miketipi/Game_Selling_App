@@ -14,6 +14,7 @@ namespace IE307Final
     public partial class GameDetailPage : ContentPage
     {
         public Product _game;
+        public LoaiGame _lgame;
         public GameDetailPage()
         {
             InitializeComponent();
@@ -22,8 +23,19 @@ namespace IE307Final
         {
             InitializeComponent();
             _game = a;
+            a.LayTenLoai(a.Game_Type);
             Title = _game.Name;
             Scroll_ChiTiet.BindingContext = a;
+        }
+
+        private void Btn_Add_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Yeuthich_Clicked(object sender, EventArgs e)
+        {
+
         }
     }
 }

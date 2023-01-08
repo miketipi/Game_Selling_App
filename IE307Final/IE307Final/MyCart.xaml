@@ -31,7 +31,7 @@
                                        VerticalOptions="Start"
                                        TextColor="Red"
                                        FontSize="20" />
-                                <Label Text="{Binding Price}"
+                                <Label Text="{Binding Price, StringFormat='{0:F3} vnđ'}"
                                        Grid.Column="1"
                                        Grid.Row="1"
                                        FontSize="16"

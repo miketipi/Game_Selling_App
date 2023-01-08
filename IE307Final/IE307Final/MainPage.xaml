@@ -239,7 +239,7 @@
                                                                    Aspect="AspectFill" />
                                                         </StackLayout>
                                                         <StackLayout Orientation="Horizontal">
-                                                            <Label Text="{Binding Price, StringFormat='{0:F2} vnđ'}"
+                                                            <Label Text="{Binding Price, StringFormat='{0:F3} vnđ'}"
                                                                    FontSize="Medium"
                                                                    TextColor="Black"></Label>
                                                             <Image Source="FavouriteBlackIcon.png"

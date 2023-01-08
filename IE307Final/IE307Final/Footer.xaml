@@ -5,7 +5,7 @@
              BackgroundColor="#2196F3">
   <ContentView.Content>
         <StackLayout>
-            <Label Text="Created by Vo Tran Thien Phuc©"
+            <Label Text="Created by Vo Tran Thien Phuc, Pham Ba Bang ©"
                    TextColor="White"
                    HorizontalOptions="Center"
                    VerticalOptions="Center"
