@@ -155,26 +155,21 @@ GO
 SET IDENTITY_INSERT game ON;
 Go
 insert into game (ProductID, Game_Type, Name, Price, Game_Img, Rating, Description, Status, Platform)
-values ('1000','1','Left 4 dead 2','120000','','3.5',N'là một trò chơi bắn súng góc nhìn thứ nhất','1','PC');
+values ('1000','1','Left 4 dead 2','120000','https://en.wikipedia.org/wiki/Left_4_Dead_2#/media/File:Left4Dead2.jpg','3.5',N'Left 4 Dead 2 là một trò chơi bắn súng góc nhìn thứ nhất năm 2009 được phát triển và xuất bản bởi Valve.','1','PC');
 insert into game (ProductID, Game_Type, Name, Price, Game_Img, Rating, Description, Status, Platform)
-values ('1001','1','Counter-strike Global Offensive',N'350000','','4.5',N'là một trò chơi bắn súng fps','1','PC');
+values ('1001','1','Counter-strike Global Offensive',N'350000','https://didongviet.vn/dchannel/wp-content/uploads/2022/10/csgo-di-dong-viet-14.jpg','4.5',N'Counter-Strike: Global Offensive là một trò chơi máy tính thuộc thể loại bắn súng góc nhìn thứ nhất, chiến thuật nhiều người chơi được phát triển bởi Valve Corporation và Hidden Path Entertainment, đơn vị cũng đã tiếp tục duy trì Counter-Strike: Source sau khi phát hành','1','PC');
 insert into game (ProductID, Game_Type, Name, Price, Game_Img, Rating, Description, Status, Platform)
-values ('1002','2','Risk of rain 2','180000','','4.0',N'bắn súng góc nhìn thứ ba giống người thật được phát triển bởi Hopoo Games','1','PC');
+values ('1002','2','Risk of rain 2','180000','https://upload.wikimedia.org/wikipedia/en/c/c1/Risk_of_Rain_2.jpg','4.0',N'Risk of Rain 2 là một game bắn súng góc nhìn thứ ba giống người thật được phát triển bởi Hopoo Games và được xuất bản bởi Gearbox Publishing','1','PC');
 insert into game (ProductID, Game_Type, Name, Price, Game_Img, Rating, Description, Status, Platform)
-values ('1003','3','GTA V','500000','','3.8',N'Grand Theft Auto V là một trò chơi điện tử hành động phiêu lưu năm 2013','1','PC');
+values ('1003','3','GTA V','500000','https://gamedva.com/wp-content/uploads/GTA-5-Grand-Theft-Auto-V.jpg','3.8',N'Grand Theft Auto V là một trò chơi điện tử hành động phiêu lưu năm 2013 do Rockstar North phát triển và Rockstar Games phát hành. Đây là phần thứ năm của dòng trò chơi Grand Theft Auto sau Grand Theft Auto IV.','1','PC');
 insert into game (ProductID, Game_Type, Name, Price, Game_Img, Rating, Description, Status, Platform)
-values ('1004','3','Hero Siege','120000','','3.2',N'Hero Siege là một trò chơi Slash của Hack với các yếu tố roguelike- & RPG','0','Console');
+values ('1004','3','Hero Siege','120000','https://cdn.cloudflare.steamstatic.com/steam/apps/269210/header.jpg?t=1669637809','3.2',N'Hero Siege là một trò chơi Slash của Hack với các yếu tố roguelike- & RPG. Tiêu diệt lũ kẻ thù, phát triển cây tài năng của bạn, nghiền nát chiến lợi phẩm tốt hơn và khám phá tới 7 Công vụ được tăng cường với đồ họa Pixel Art tuyệt đẹp! Trò chơi này cung cấp vô số giờ chơi và lên tới 4 người chơi trực tuyến','0','Console');
 insert into game (ProductID, Game_Type, Name, Price, Game_Img, Rating, Description, Status, Platform) 
-values ('1005','1','Rainbow Six Siege','300000','','3.5',N'là một trò chơi điện tử bắn súng chiến thuật','0','Console');
+values ('1005','1','Rainbow Six Siege','300000','https://image.api.playstation.com/vulcan/ap/rnd/202209/2121/UlfMBx2yUHge8Vlz7eszqw13.png','3.5',N'Tom Clancy's Rainbow Six Siege là một trò chơi điện tử bắn súng chiến thuật được phát triển bởi Ubisoft Montreal và được phát hành bởi Ubisoft.','0','Console');
 insert into game (ProductID, Game_Type, Name, Price, Game_Img, Rating, Description, Status, Platform) 
-values ('1006','4','Mario Kart Wii','90000','','5',N'là một trò chơi đua xe kart được phát triển và xuất bản bởi Nintendo cho Wii','0','Console');
+values ('1006','4','Mario Kart Wii','90000','https://m.media-amazon.com/images/M/MV5BNzQ1ZTZmMjctZjk0MS00YTdiLWE5MjEtYjVkZmY3Y2I5MTllXkEyXkFqcGdeQXVyMTAyNzc0MDkz._V1_FMjpg_UX1000_.jpg','5',N'Được dịch từ tiếng Anh-Mario Kart Wii là một trò chơi đua xe kart được phát triển và xuất bản bởi Nintendo cho Wii. Đây là phần thứ sáu trong loạt Mario Kart, và được phát hành vào tháng 4 năm 2008','0','Console');
 insert into game (ProductID, Game_Type, Name, Price, Game_Img, Rating, Description, Status, Platform)
-values ('1007','3','Pokémon Unite','12000','','4',N'là một trò chơi điện tử đấu trường trực tuyến nhiều người chơi','0','Console');
-insert into game (ProductID, Game_Type, Name, Price, Game_Img, Rating, Description, Status, Platform) 
-<<<<<<< Updated upstream
-values ('1008','1','Left 4 dead 2','120000','','3.5',N'là một trò chơi bắn súng góc nhìn thứ nhất','0','Console');
-insert into game (ProductID, Game_Type, Name, Price, Game_Img, Rating, Description, Status, Platform) 
-values ('1009','1','Left 4 dead 2','120000','','3.5',N'là một trò chơi bắn súng góc nhìn thứ nhất','0','Console');
+values ('1007','3','Pokémon Unite','12000','https://image.thanhnien.vn/w2048/Uploaded/2023/fsmym/2021_08_21/moba-pokemon-unite-ra-mat-tren-android-ios02_eclv.jpg','4',N'Pokémon Unite là một trò chơi điện tử đấu trường trực tuyến nhiều người chơi, miễn phí được phát triển bởi TiMi Studio Group và được xuất bản bởi The Pokémon Companyi','0','Console');
 =======
 values ('1008','6','Frontier Hunter: Erza’s Wheel of Fortune','198000','https://cdn.cloudflare.steamstatic.com/steam/apps/1429500/header.jpg?t=1671299332','4.8',N'Sau khi đế chế phát minh ra khí cầu, con người cuối cùng đã có thể bay qua các lục địa và đảo nổi. Và nhờ đó, đế chế mở rộng nhanh chóng. Thợ săn hàng đầu, Erza, dẫn đầu một đội thám hiểm khám phá biên giới man rợ nơi đế chế không thể chạm tới.','0','PC');
 insert into game (ProductID, Game_Type, Name, Price, Game_Img, Rating, Description, Status, Platform) 
