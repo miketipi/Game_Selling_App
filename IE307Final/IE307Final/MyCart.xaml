@@ -21,17 +21,16 @@
                                 <Label Grid.Column="0" Grid.Row="2" Text="4.5/5" FontAttributes="Bold" />
                                 <!--Binding Price-->
                                 <Label Grid.Column="1" Grid.Row="2" Text="350000đ" FontAttributes="Bold" FontSize="18" TextColor="Silver"/>
+                                <ImageButton x:Name="btn_Xoa"
+                                        Grid.Column="1"
+                                        Grid.Row="1"
+                                        Source="https://cdn-icons-png.flaticon.com/512/1828/1828843.png"
+                                        BackgroundColor="#f2f1f8"
+                                        Clicked="btn_Xoa_Clicked" />
                             </Grid>
                         </Frame>
                         <Frame Grid.Column="0" BorderColor="Transparent" HorizontalOptions="Start" VerticalOptions="Start" WidthRequest="125" HeightRequest="135" HasShadow="False"  CornerRadius="10" Padding="0" IsClippedToBounds="True">
                             <Image Source="https://cdn.akamai.steamstatic.com/steam/apps/730/capsule_616x353.jpg?t=1668125812" Aspect="Fill"/>
-                        </Frame>
-                        <Frame>
-                            <Button x:Name="btn_Xoa"
-                                        Text="Cập Nhật"
-                                        Grid.Column="0"
-                                        Grid.Row="3"
-                                        Clicked="btn_Xoa_Clicked" />
                         </Frame>
                     </Grid>
                     <!--</DataTemplate>
