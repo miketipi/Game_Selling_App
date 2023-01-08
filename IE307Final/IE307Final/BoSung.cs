@@ -6,6 +6,6 @@ namespace IE307Final
 {
     public class BoSung
     {
-        public static string DiaChiIPMay = "192.168.1.7";
+        public static string DiaChiIPMay = "192.168.1.8";
     }
 }

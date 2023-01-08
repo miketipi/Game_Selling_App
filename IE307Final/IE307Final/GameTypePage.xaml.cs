@@ -13,6 +13,8 @@ namespace IE307Final
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class GameTypePage : ContentPage
     {
+        int tapCount = 2;
+        List<Product> dslg = new List<Product>();
         public GameTypePage()
         {
             InitializeComponent();
@@ -37,7 +39,16 @@ namespace IE307Final
 
         private void AddToWishList_Tapped(object sender, EventArgs e)
         {
-
+            tapCount++;
+            var image = (Image)sender;
+            if (tapCount % 2 != 0)
+            {
+                image.Source = "FavouriteRedIcon.png";
+            }
+            else
+            {
+                image.Source = "FavouriteBlackIcon.png";
+            }
         }
     }
 }

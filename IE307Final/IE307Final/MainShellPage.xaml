@@ -107,6 +107,11 @@
             <ShellContent ContentTemplate="{DataTemplate local:MyCart}" />
         </Tab>
     </FlyoutItem>
+    <FlyoutItem Title="Thêm sản phẩm" IsVisible="False" Icon="AddToCartIcon.png">
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate local:AddGamePage}" />
+        </Tab>
+    </FlyoutItem>
     <FlyoutItem Title="Tài khoản" Icon="user.png">
         <Tab>
             <ShellContent ContentTemplate="{DataTemplate local:AccountPage}" />

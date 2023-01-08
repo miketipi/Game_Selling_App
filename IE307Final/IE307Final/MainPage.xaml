@@ -253,11 +253,14 @@
                                                                                           NumberOfTapsRequired="1"></TapGestureRecognizer>
                                                                 </Image.GestureRecognizers>
                                                             </Image>
-                                                            <Image Source="AddToCartIcon.png"
-                                                                   VerticalOptions="Center"
-                                                                   HeightRequest="20"
-                                                                   WidthRequest="20"
-                                                                   Aspect="Fill"></Image>
+                                                            <ImageButton Source="AddToCartIcon.png"
+                                                                         VerticalOptions="Center"
+                                                                         HeightRequest="20"
+                                                                         WidthRequest="20"
+                                                                         Aspect="Fill"
+                                                                         x:Name="AddToCart"
+                                                                         Clicked="AddToCart_Clicked">
+                                                            </ImageButton>
                                                         </StackLayout>
                                                     </StackLayout>
                                                 </StackLayout>
@@ -327,7 +330,7 @@
                                                                    Aspect="AspectFill" />
                                                         </StackLayout>
                                                         <StackLayout Orientation="Horizontal">
-                                                            <Label Text="{Binding Price, StringFormat='{0:F2} vnđ'}"
+                                                            <Label Text="{Binding Price, StringFormat='{0:F3} vnđ'}"
                                                                    FontSize="Medium"
                                                                    TextColor="Black"></Label>
                                                             <Image Source="FavouriteBlackIcon.png"

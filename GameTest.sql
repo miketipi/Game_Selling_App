@@ -120,9 +120,10 @@ as
 select [ProductID]
       ,[Game_Type]
       ,[Name]
-      ,[Price] as GiaBan
-      ,'http://172.29.176.1/WebAPIQLBHN11/images/'+[Game_Img] as hinh
-      ,[Description] from game
+      ,[Price]
+      ,[Game_Img]
+      ,[Description]
+	  ,[Rating] from game
 where Game_Type=@maloai
 GO
 /* */

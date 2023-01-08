@@ -109,5 +109,26 @@ namespace IE307Final
             a.Game_Type = 4;
             Navigation.PushAsync(new GameTypePage(a));
         }
+
+
+        private void AddToCart_Clicked(object sender, EventArgs e)
+        {
+            ImageButton bt = (ImageButton)sender;
+            Product prod = (Product)bt.BindingContext;
+            bool choose = false;
+            foreach (Product p in Account.usrCart.GameList)
+            {
+                if (prod.ProductID == p.ProductID)
+                {
+                    choose = true;
+                    break; //xem xem  san pham da duoc chon hay chua
+                }
+                if (choose == false)
+                {
+                    Account.usrCart.GameList.Add(prod);
+                }
+                DisplayAlert("Thông báo", "Thêm vào giỏ hàng thành công", "OK");
+            }    
+        }
     }
 }

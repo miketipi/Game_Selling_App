@@ -21,5 +21,6 @@ namespace IE307Final
             InitializeComponent();
             BindingContext = this;
         }
+
     }
 }
