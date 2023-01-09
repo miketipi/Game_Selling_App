@@ -16,5 +16,6 @@ namespace IE307Final
         public string Address { get; set; }
         public static Cart usrCart;
         public static Account usr;
+        public static List<Product> GioHang { get; set; }
     }
 }

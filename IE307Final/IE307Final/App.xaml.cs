@@ -14,6 +14,7 @@ namespace IE307Final
             Account.usr = new Account();
             Account.usrCart = new Cart();
             Account.usrCart.GameList = new System.Collections.Generic.List<Product>();
+            Account.GioHang = new System.Collections.Generic.List<Product>();
         }
 
         protected override void OnStart()

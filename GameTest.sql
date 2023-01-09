@@ -204,7 +204,32 @@ create proc [dbo].[LoadCart]
 as
 select * from Cart
 GO
+/*Cap Nhat Tai Khoan*/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROC [dbo].[Update_Account](@mand int, @dt nvarchar(10), @pwd nvarchar(100), @email nvarchar(100),@CurrentID int output)
+as
+begin try
 
+if(exists(select * from Account where UserID<>@mand))
+ begin
+  set @CurrentID=-1
+  return
+ end
+update account set Phone=@dt
+where UserID=@mand
+update account set PWD=@pwd
+where UserID=@mand
+update account set Email=@email
+where UserID=@mand
+set @CurrentID=@mand
+end try
+begin catch
+ set @CurrentID=0
+ end catch
+GO
 <<<<<<< HEAD
 SET IDENTITY_INSERT game ON;
 Go

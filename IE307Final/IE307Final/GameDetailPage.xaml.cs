@@ -30,7 +30,22 @@ namespace IE307Final
 
         private void Btn_Add_Clicked(object sender, EventArgs e)
         {
-
+            Button bt = (Button)sender;
+            Product prod = (Product)bt.BindingContext;
+            bool choose = false;
+            foreach (Product p in Account.usrCart.GameList)
+            {
+                if (prod.ProductID == p.ProductID)
+                {
+                    choose = true;
+                    break; //xem xem  san pham da duoc chon hay chua
+                }
+            }
+            if (choose == false)
+            {
+                Account.usrCart.GameList.Add(prod);
+            }
+            DisplayAlert("Thông báo", "Thêm vào giỏ hàng thành công", "OK");
         }
 
         private void Yeuthich_Clicked(object sender, EventArgs e)

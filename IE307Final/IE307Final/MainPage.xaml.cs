@@ -127,8 +127,9 @@ namespace IE307Final
                 {
                     Account.usrCart.GameList.Add(prod);
                 }
-                DisplayAlert("Thông báo", "Thêm vào giỏ hàng thành công", "OK");
-            }    
+                
+            }
+            DisplayAlert("Thông báo", "Thêm vào giỏ hàng thành công", "OK");
         }
     }
 }

@@ -1,62 +1,40 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="IE307Final.MyCart">
+             x:Class="IE307Final.MyCart" Title="Giỏ hàng">
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="lstgiohang"
-                      HasUnevenRows="True">
-                <ListView.ItemTemplate>
+            <CollectionView x:Name="CV_Cart">
+                <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell>
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition></RowDefinition>
-                                    <RowDefinition></RowDefinition>
-                                    <RowDefinition></RowDefinition>
-                                    <RowDefinition />
-                                    <RowDefinition />
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                    <ColumnDefinition Width="2*"></ColumnDefinition>
-                                </Grid.ColumnDefinitions>
-                                <Image Source="{Binding Game_Img}"
-                                       Grid.Column="0"
-                                       Grid.Row="0"
-                                       Grid.RowSpan="3" />
-                                <Label Text="{Binding Name}"
-                                       Grid.Column="1"
-                                       Grid.Row="0"
-                                       VerticalOptions="Start"
-                                       TextColor="Red"
-                                       FontSize="20" />
-                                <Label Text="{Binding Price, StringFormat='{0:F3} vnđ'}"
-                                       Grid.Column="1"
-                                       Grid.Row="1"
-                                       FontSize="16"
-                                       VerticalOptions="Start"
-                                       TextColor="Blue" />
-                                <Label Text="{Binding Description}"
-                                       Grid.Column="1"
-                                       Grid.Row="2"
-                                       FontSize="16"
-                                       VerticalOptions="Start" />
-                                <Button x:Name="cmdCapnhat"
-                                        Text="Cập Nhật"
-                                        Grid.Column="0"
-                                        Grid.Row="3"
-                                        Clicked="cmdCapnhat_Clicked" />
-                                <Button x:Name="cmdxoa"
-                                        Text="Xóa"
-                                        Grid.Column="1"
-                                        Grid.Row="3"
-                                        Clicked="cmdxoa_Clicked" />
-                            </Grid>
-                        </ViewCell>
+                        <StackLayout>
+                        
+
+                            <Image Source="{Binding Game_Img}" />
+                            <Label Text="{Binding Name}"
+                                   VerticalOptions="Start"
+                                   TextColor="Red"
+                                   FontSize="20" />
+                            <Label Text="{Binding Price, StringFormat='{0:F3} vnđ'}"
+                                   FontSize="16"
+                                   VerticalOptions="Start"
+                                   TextColor="Blue" />
+                            <Label Text="{Binding Description}"
+                                   FontSize="16"
+                                   VerticalOptions="Start" />
+                            <Button x:Name="cmdCapnhat"
+                                    Text="Cập Nhật"
+                                    Clicked="cmdCapnhat_Clicked" />
+                            <Button x:Name="cmdxoa"
+                                    Text="Xóa"
+                                    Clicked="cmdxoa_Clicked" />
+
+                        
+                        </StackLayout>
                     </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
             <Editor x:Name="txtdiachigiaohang"
                     Placeholder="Địa chỉ giao hàng"
                     HeightRequest="50" />

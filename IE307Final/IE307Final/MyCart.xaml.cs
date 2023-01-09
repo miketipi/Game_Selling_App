@@ -17,7 +17,8 @@ namespace IE307Final
         public MyCart()
         {
             InitializeComponent();
-            lstgiohang.ItemsSource = Account.usrCart.GameList;
+            SharedFunct.CreateGameList(Account.GioHang);
+            CV_Cart.ItemsSource = Account.usrCart.GameList;
         }
 
         private async void cmdMuahang_Clicked(object sender, EventArgs e)
