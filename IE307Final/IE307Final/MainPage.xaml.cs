@@ -122,12 +122,12 @@ namespace IE307Final
                 {
                     choose = true;
                     break; //xem xem  san pham da duoc chon hay chua
-                }
-                if (choose == false)
-                {
-                    Account.usrCart.GameList.Add(prod);
-                }
+                }  
                 
+            }
+            if (choose == false)
+            {
+                Account.usrCart.GameList.Add(prod);
             }
             DisplayAlert("Thông báo", "Thêm vào giỏ hàng thành công", "OK");
         }

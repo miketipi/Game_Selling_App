@@ -7,9 +7,77 @@
             <CollectionView x:Name="CV_Cart">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <StackLayout>
-                        
-
+                        <!--  <StackLayout> -->
+                        <Grid ColumnDefinitions="*"
+                              Padding="0,20"
+                              VerticalOptions="Center">
+                            <Frame Grid.Column="0"
+                                   HorizontalOptions="Fill"
+                                   HasShadow="False"
+                                   BackgroundColor="#f2f1f8"
+                                   CornerRadius="10">
+                                <Grid ColumnDefinitions="*,Auto"
+                                      RowDefinitions="Auto,Auto,Auto"
+                                      Padding="125,0,0,0">
+                                    <!--Binding Name-->
+                                    <Label Grid.Column="0"
+                                           Grid.ColumnSpan="2"
+                                           Grid.Row="0"
+                                           Text="{Binding Name}"
+                                           FontAttributes="Bold"
+                                           FontSize="20" />
+                                    <!--Binding Game Type-->
+                                    <Label Grid.Column="0"
+                                           Grid.Row="1"
+                                           Text="{Binding TenLoai}"
+                                           FontAttributes="Bold"
+                                           TextColor="Silver"
+                                           FontSize="15" />
+                                    <!--Binding Rating-->
+                                    <StackLayout Grid.Row="2"
+                                                 Orientation="Horizontal">
+                                        <Label Text="{Binding Rating}"
+                                               FontAttributes="Bold"
+                                               HorizontalOptions="Center"
+                                               FontSize="20" />
+                                        <Image Source="star.png"
+                                               WidthRequest="20"
+                                               HeightRequest="20"
+                                               HorizontalOptions="Center" />
+                                    </StackLayout>
+                                    <!--Binding Price-->
+                                    <Label Grid.Column="1"
+                                           Grid.Row="2"
+                                           Text="{Binding Price, StringFormat='{0:F3} vnđ'}"
+                                           FontAttributes="Bold"
+                                           FontSize="18"
+                                           TextColor="Silver" />
+                                    <ImageButton x:Name="btn_Xoa"
+                                                 Grid.Column="1"
+                                                 Grid.Row="1"
+                                                 Source="https://cdn-icons-png.flaticon.com/512/1828/1828843.png"
+                                                 BackgroundColor="#f2f1f8"
+                                                 WidthRequest="30"
+                                                 HeightRequest="30"
+                                                 Clicked="btn_Xoa_Clicked"
+                                                 HorizontalOptions="End" />
+                                </Grid>
+                            </Frame>
+                            <Frame Grid.Column="0"
+                                   BorderColor="Transparent"
+                                   HorizontalOptions="Start"
+                                   VerticalOptions="Start"
+                                   WidthRequest="125"
+                                   HeightRequest="135"
+                                   HasShadow="False"
+                                   CornerRadius="10"
+                                   Padding="0"
+                                   IsClippedToBounds="True">
+                                <Image Source="{Binding Game_Img}"
+                                       Aspect="Fill" />
+                            </Frame>
+                        </Grid>
+                        <!--
                             <Image Source="{Binding Game_Img}" />
                             <Label Text="{Binding Name}"
                                    VerticalOptions="Start"
@@ -30,21 +98,14 @@
                                     Clicked="cmdxoa_Clicked" />
 
                         
-                        </StackLayout>
+                        </StackLayout>-->
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-
-            <Editor x:Name="txtdiachigiaohang"
-                    Placeholder="Địa chỉ giao hàng"
-                    HeightRequest="50" />
-            <Editor x:Name="txtdiachiloinhan"
-                    Placeholder="Lời Nhắn"
-                    HeightRequest="50" />
             <Button x:Name="cmdMuahang"
-                    Text="Mua Hàng"
+                    Text="Thanh toán"
                     VerticalOptions="Center"
-                    Clicked="cmdMuahang_Clicked" />
+                    Clicked="cmdMuahang_Clicked" BackgroundColor="{StaticResource Primary}"/>
 
 
         </StackLayout>

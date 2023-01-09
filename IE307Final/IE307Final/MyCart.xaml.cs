@@ -16,8 +16,7 @@ namespace IE307Final
     {
         public MyCart()
         {
-            InitializeComponent();
-            SharedFunct.CreateGameList(Account.GioHang);
+            InitializeComponent();       
             CV_Cart.ItemsSource = Account.usrCart.GameList;
         }
 
@@ -54,6 +53,15 @@ namespace IE307Final
         private void cmdCapnhat_Clicked(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_Xoa_Clicked(object sender, EventArgs e)
+        {
+            ImageButton bt = (ImageButton)sender;
+            Product SanPham = (Product)bt.BindingContext;
+            Account.usrCart.GameList.Remove(SanPham);
+            DisplayAlert("Thông báo", "Đã xoá thành công", "OK");
+            CV_Cart.ItemsSource = Account.usrCart.GameList;
         }
     }
 }
