@@ -114,5 +114,19 @@ namespace WebAPI_IE307Final.Controllers
                 return NotFound();
             }
         }
+        [Route("api/HelloWebAPIController/Them_Game")]
+        [HttpPost]
+        public IHttpActionResult Them_Game(Product pd)
+        {
+            try
+            {
+                Product kq = Database.Them_Game(pd);
+                return Ok(kq);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
     }
 }

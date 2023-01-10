@@ -141,6 +141,23 @@ namespace WebAPI_IE307Final.Controllers
                 nd.UserID = kq;
             return nd;
         }
+        public static Product Them_Game(Product pd)
+        {
+            Dictionary<string, object> param = new Dictionary<string, object>();
+            param.Add("pf", pd.Platform);
+            param.Add("tengame", pd.Name);
+            param.Add("status", pd.Status);
+            param.Add("rating", pd.Rating);
+            param.Add("des", pd.Description);
+            param.Add("img", pd.Game_Img);
+            param.Add("gmtype", pd.Game_Type);
+            param.Add("price", pd.Price);
+            int kq = int.Parse(Exec_Command("Them_Game", param).ToString());
+            if (kq > -1) pd.ProductID = kq;
+            return pd;
+
+
+        }
         public static int AddCart(Cart crt)
         {
             DataTable tb = new DataTable();

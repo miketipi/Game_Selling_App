@@ -166,7 +166,7 @@
     </Compile>
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\LoaiGame.cs" />
-    <Compile Include="Models\Product.cs" />
+    <Compile Include="Controllers\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

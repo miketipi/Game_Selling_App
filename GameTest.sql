@@ -246,6 +246,22 @@ begin catch
  set @CurrentID=0
  end catch
 GO
+/* Thêm Game */
+set ansi_nulls on
+go
+set quoted_identifier  on
+go
+CREATE PROC [dbo].[Them_Game](@tengame nvarchar(250),@rating float, @status bit, @des nvarchar(max), @img nvarchar(max),@pf nvarchar(50),@price float, @gmtype int,@CurrentID int output)
+as
+if(exists(select * from game where Name =@tengame))
+ begin
+  set @CurrentID=-1
+  return
+ end
+insert into game(Game_Type, Name, Price, Game_Img, Rating, Description, Status, Platform)values (@gmtype, @tengame, @price, @img, @rating, @des, @status, @pf)
+set @CurrentID=@@IDENTITY
+go
+
 <<<<<<< HEAD
 SET IDENTITY_INSERT game ON;
 Go

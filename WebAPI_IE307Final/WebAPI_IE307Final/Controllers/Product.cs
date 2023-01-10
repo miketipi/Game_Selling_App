@@ -7,7 +7,7 @@ namespace WebAPI_IE307Final.Models
 {
     public class Product
     {
-        public string ProductID { get; set; }
+        public int ProductID { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public string Game_Img { get; set; }
