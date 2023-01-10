@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
+using System.Net.Http;
+using Newtonsoft.Json;
 namespace IE307Final
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -15,6 +16,25 @@ namespace IE307Final
         public AccountPage()
         {
             InitializeComponent();
+            BindingContext = Account.usr;
+        }
+
+        private async void Btn_Change_Clicked(object sender, EventArgs e)
+        {
+            if (EntPasswordAgain.Text != EntPassword.Text)
+            {
+                await DisplayAlert("Thông báo", "Mật khẩu nhập lại không đúng", "OK");
+                return;
+            }    
+            HttpClient http = new HttpClient();
+            Account acc = new Account { UserID = Account.usr.UserID, phone = EntPhoneNumber.Text, Email = EntEmail.Text, PWD = EntPassword.Text };
+            string jsonlh = JsonConvert.SerializeObject(acc);
+            StringContent httpcontent = new StringContent(jsonlh, Encoding.UTF8, "application/json");
+            HttpResponseMessage kq = await http.PutAsync("http://" + BoSung.DiaChiIPMay + "/doanie307/HelloWebAPIController/Update_Account", httpcontent);
+            var kqtv = await kq.Content.ReadAsStringAsync();
+            acc = JsonConvert.DeserializeObject<Account>(kqtv);
+            await DisplayAlert("Thông báo", "Sửa thông tin thành công", "OK");
+
         }
     }
 }

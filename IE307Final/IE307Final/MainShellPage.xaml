@@ -107,7 +107,7 @@
             <ShellContent ContentTemplate="{DataTemplate local:MyCart}" />
         </Tab>
     </FlyoutItem>
-    <FlyoutItem Title="Thêm sản phẩm" IsVisible="False" Icon="AddToCartIcon.png">
+    <FlyoutItem Title="Thêm sản phẩm" IsVisible="{Binding IsAdmin}" Icon="AddToCartIcon.png">
         <Tab>
             <ShellContent ContentTemplate="{DataTemplate local:AddGamePage}" />
         </Tab>

@@ -123,6 +123,7 @@ namespace WebAPI_IE307Final.Controllers
                 kq.UserName = tb.Rows[0]["UserName"].ToString();
                 kq.Email = tb.Rows[0]["Email"].ToString();
                 kq.PWD = tb.Rows[0]["PWD"].ToString();
+                kq.Role = int.Parse(tb.Rows[0]["usrRole"].ToString());
             }
             else
                 kq.UserID = 0; //Neu ko tim ra user thi ma user = 0 va se ko cho dang nhap o ung dung
@@ -146,7 +147,7 @@ namespace WebAPI_IE307Final.Controllers
             tb.Columns.Add("Product_ID", typeof(int));
             tb.Columns.Add("price", typeof(float));
             tb.Columns.Add("total", typeof(float));
-            foreach(Product p in crt.GameList)
+            foreach (Product p in crt.GameList)
             {
                 DataRow r = tb.NewRow();
                 r["Product_ID"] = p.ProductID;
@@ -160,6 +161,16 @@ namespace WebAPI_IE307Final.Controllers
             param.Add("t", tb);
             int kq = int.Parse(Exec_Command("Add_Cart", param).ToString());
 
+            return kq;
+        }
+        public static int Update_Account(Account nd)
+        {
+            Dictionary<string, object> param = new Dictionary<string, object>();
+            param.Add("mand", nd.UserID);
+            param.Add("dt", nd.phone);
+            param.Add("pwd", nd.PWD);
+            param.Add("email", nd.Email);
+            int kq = int.Parse(Exec_Command("Update_Account", param).ToString());
             return kq;
         }
     }

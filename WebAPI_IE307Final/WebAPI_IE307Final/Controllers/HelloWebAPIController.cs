@@ -100,5 +100,19 @@ namespace WebAPI_IE307Final.Controllers
                 return NotFound();
             }
         }
+        [Route("api/HelloWebAPIController/Update_Account")]
+        [HttpPut]
+        public IHttpActionResult Update_Account(Account nd)
+        {
+            try
+            {
+                int kq = Database.Update_Account(nd);
+                return Ok(kq);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
     }
 }

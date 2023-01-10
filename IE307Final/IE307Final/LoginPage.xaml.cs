@@ -37,6 +37,7 @@ namespace IE307Final
             {
                 await DisplayAlert("Thông báo", "Chào " + nd.UserName, "OK");
                 Account.usr = nd;
+                MessagingCenter.Send<LoginPage>(this, (Account.usr.Role == 1) ? "admin" : "user");
                 await Shell.Current.GoToAsync("//main");
             }
             else await DisplayAlert("Thông báo", "Đăng nhập không hợp lệ", "OK");

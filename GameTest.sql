@@ -52,11 +52,27 @@ CREATE TABLE [dbo].[Account](
 	[Phone] [nvarchar](10) NULL,
 	[PWD] [nvarchar](100) NULL,
 	[Email] [nvarchar](100) NULL,
+	[UsrRole] [int] NULL,
  CONSTRAINT [PK_NguoiDung] PRIMARY KEY CLUSTERED 
 (
 	[UserID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
+GO
+/* Lay nguoi dung tu csdl */
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE proc [dbo].[BindingUser](@usrID int)
+as
+select [UserName]
+      ,[RealName]
+      ,[Phone]
+      ,[PWD] 
+      ,[Email]
+from Account
+where UserID=@usrID
 GO
 /*Tạo CT DonHang */
 SET ANSI_NULLS ON
@@ -254,7 +270,7 @@ values ('1008','6','Frontier Hunter: Erza’s Wheel of Fortune','198','https://c
 insert into game (ProductID, Game_Type, Name, Price, Game_Img, Rating, Description, Status, Platform) 
 values ('1009','6','Overcooked! 2','300','https://cdn.cloudflare.steamstatic.com/steam/apps/728880/header.jpg?t=1670442579','3.8',N'OverCooked 2 là một trò chơi video mô phỏng nấu ăn hợp tác được phát triển bởi Team17 cùng với Ghost Town Games và được xuất bản bởi Team17. Phần tiếp theo của OverCooked!','0','Console');
 insert into game (ProductID, Game_Type, Name, Price, Game_Img, Rating, Description, Status, Platform) 
-values ('1010','1','Call of Duty®: Modern Warfare® II','1800','https://cdn.cloudflare.steamstatic.com/steam/apps/1938090/header.jpg?t=1671472823','3',N'Call of Duty: Modern Warfare 2 là một trò chơi điện tử thể loại bắn súng góc nhìn thứ nhất, được phát triển bởi Infinity Ward và phát hành bởi Activision.','0','PC');
+values ('1010','1','Call of Duty®: Modern Warfare® II','800','https://cdn.cloudflare.steamstatic.com/steam/apps/1938090/header.jpg?t=1671472823','3',N'Call of Duty: Modern Warfare 2 là một trò chơi điện tử thể loại bắn súng góc nhìn thứ nhất, được phát triển bởi Infinity Ward và phát hành bởi Activision.','0','PC');
 insert into game (ProductID, Game_Type, Name, Price, Game_Img, Rating, Description, Status, Platform) 
 values ('1011','6','Borderlands 2','83','https://cdn.cloudflare.steamstatic.com/steam/apps/49520/header.jpg?t=1645058069','4.2',N'Borderlands 2 là video game hành động nhập vai, bắn súng góc nhìn thứ nhất được phát triển bởi Gearbox Software và được xuất bản bởi 2K Games. Đây là phần tiếp theo của Borderlands năm 2009','1','Console');
 insert into game (ProductID, Game_Type, Name, Price, Game_Img, Rating, Description, Status, Platform) 
@@ -323,10 +339,10 @@ SET IDENTITY_INSERT loaigame OFF;
 
 SET IDENTITY_INSERT Account ON;
 GO
-insert into Account (UserID, UserName, Phone,PWD,Email,RealName)
-values ('1','admin','036182673','123456','lmao@gmail.com','abcxyz');
-insert into Account (UserID, UserName, Phone,PWD,Email,RealName)
-values ('2','phuc','036182673','123456','lmao@gmail.com',N'Phúc');
+insert into Account (UserID, UserName, Phone,PWD,Email,RealName,UsrRole)
+values ('1','admin','036182673','123456','lmao@gmail.com','abcxyz',1);
+insert into Account (UserID, UserName, Phone,PWD,Email,RealName,UsrRole)
+values ('2','phuc','036182673','123456','lmao@gmail.com',N'Phúc',0);
 SET IDENTITY_INSERT Account OFF;
 
 SET IDENTITY_INSERT Don_Hang ON
