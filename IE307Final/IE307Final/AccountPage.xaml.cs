@@ -13,10 +13,12 @@ namespace IE307Final
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AccountPage : ContentPage
     {
+        Account tkc;
         public AccountPage()
         {
             InitializeComponent();
             BindingContext = Account.usr;
+            tkc = new Account();
         }
 
         private async void Btn_Change_Clicked(object sender, EventArgs e)
@@ -33,7 +35,12 @@ namespace IE307Final
             HttpResponseMessage kq = await http.PutAsync("http://" + BoSung.DiaChiIPMay + "/doanie307/HelloWebAPIController/Update_Account", httpcontent);
             var kqtv = await kq.Content.ReadAsStringAsync();
             acc = JsonConvert.DeserializeObject<Account>(kqtv);
-            await DisplayAlert("Thông báo", "Sửa thông tin thành công", "OK");
+            if (int.Parse(kqtv.ToString()) > 0)
+            {
+                await DisplayAlert("Thông báo", "Sửa thông tin thành công", "OK");
+            }
+            else await DisplayAlert("Thông báo", "Cập nhật thất bại", "OK");
+            
 
         }
     }

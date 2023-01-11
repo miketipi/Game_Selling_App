@@ -14,15 +14,11 @@
                    HasShadow="True"
                    HeightRequest="40"
                    HorizontalOptions="FillAndExpand">
-                <StackLayout Orientation="Horizontal">
-                    <Image Margin="20,10,0,10"
-                           Aspect="AspectFit"
-                           HeightRequest="18"
-                           Source="search.png"
-                           WidthRequest="18" />
-                    <Editor WidthRequest="300"
-                            Placeholder="Tìm kiếm game" />
-                </StackLayout>
+                    
+                        <SearchBar WidthRequest="300"
+                            Placeholder="Tìm kiếm game" 
+                               x:Name="Search_game" TextChanged="Search_game_TextChanged" CancelButtonColor="DarkOrange"/>
+                
             </Frame>
             </StackLayout>
             <ScrollView Orientation="Vertical" VerticalScrollBarVisibility="Never">
@@ -182,7 +178,7 @@
                     </StackLayout>
                     <StackLayout>
                         <StackLayout Orientation="Horizontal">
-                            <Label Text="Thịnh hành"
+                            <Label Text="Tất cả game"
                                    FontSize="26"
                                    FontAttributes="Bold"
                                    TextColor="Black"
@@ -192,7 +188,8 @@
                             <CollectionView x:Name="CV_Trending"
                                             SelectionMode="Single"
                                             SelectionChanged="CV_Trending_SelectionChanged"
-                                            VerticalScrollBarVisibility="Never">
+                                            VerticalScrollBarVisibility="Never"
+                                            >
                                 <CollectionView.ItemsLayout>
                                     <GridItemsLayout Orientation="Vertical"
                                                      Span="2"
@@ -273,7 +270,7 @@
                             
                         </StackLayout>
                         <!--Đề xuất game mới-->
-                        <StackLayout Orientation="Horizontal">
+                        <!--<StackLayout Orientation="Horizontal">
                             <Label Text="Cho bạn"
                                    FontSize="26"
                                    FontAttributes="Bold"
@@ -359,7 +356,7 @@
                                 </CollectionView.ItemTemplate>
                             </CollectionView>
 
-                        </StackLayout>
+                        </StackLayout>-->
                     </StackLayout>
                 </StackLayout>
             </ScrollView>

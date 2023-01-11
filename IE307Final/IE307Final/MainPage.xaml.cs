@@ -27,6 +27,7 @@ namespace IE307Final
               ("http://" + BoSung.DiaChiIPMay + "/doanie307/api/HelloWebAPIController/LoadGame");
             var lst_game = JsonConvert.DeserializeObject<List<Product>>(kq);
             CV_Trending.ItemsSource = lst_game;
+            lst_Game = lst_game;
         }
         private void CV_Trending_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -130,6 +131,12 @@ namespace IE307Final
                 Account.usrCart.GameList.Add(prod);
             }
             DisplayAlert("Thông báo", "Thêm vào giỏ hàng thành công", "OK");
+        }
+
+        private void Search_game_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string text = Search_game.Text.ToUpper();
+            CV_Trending.ItemsSource = lst_Game.Where(i => i.Name.ToUpper().Contains(text));
         }
     }
 }
