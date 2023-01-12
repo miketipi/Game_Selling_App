@@ -89,6 +89,21 @@ CREATE TABLE [dbo].[CTDonHang](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
+/* tạo danh sách yêu thích */
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[YeuThich](
+	[Product_ID] [int] not NULL,
+	[UserID] [int] not NULL,
+ CONSTRAINT [PK_YeuThich] PRIMARY KEY CLUSTERED 
+(
+	[Product_ID] ASC,
+	[UserID] asc
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
 /* Đơn hàng */
 SET ANSI_NULLS ON
 GO
@@ -388,6 +403,10 @@ GO
 
 
 
+alter table [dbo].[YeuThich] with check add constraint [fk1_fav] foreign key ([Product_ID])
+references [dbo].[game] ([ProductID]) 
+alter table [dbo].[YeuThich] with check add constraint [fk2_fav] foreign key ([UserID])
+references [dbo].[Account] ([UserID]) 
 
 
 
@@ -426,6 +445,28 @@ begin catch
 set @CurrentID = 0
 end catch
 go
+--Add to fav
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create Proc [dbo].[AddToFav] (@pdid int, @usrID int, @CurrentID int output)
+as 
+begin
+try
+if (exists (select * from YeuThich where Product_ID = @pdid and UserID = @usrID))
+begin
+set @CurrentID = -1
+return 
+end
+insert into YeuThich (Product_ID, UserID)
+values (@pdid, @usrID)
+set @CurrentID = @usrID
+end try
+begin catch
+set @CurrentID = 0
+end catch
+go
 
 --Binding Cart
 create proc [dbo].[Load_Cart] (@usrID int)
@@ -434,5 +475,36 @@ from game a, GioHang b
 where a.ProductID = b.Product_ID
 and UserID = @usrID
 go
-
+--Binding Fav
+create proc [dbo].[Load_Fav] (@usrID int)
+as select a.ProductID, Name, Description,Rating, Price, Game_Img, Game_Type, Platform
+from game a, YeuThich b
+where a.ProductID = b.Product_ID
+and UserID = @usrID
+go
+--delete from Cart
+create proc [dbo].[Cart_Delete](@usrID int, @pdid int, @CurrentID int output)
+as
+begin try
+delete GioHang 
+where UserID = @usrID and Product_ID = @pdid
+set @CurrentID = @pdid
+end try
+begin catch
+set @CurrentID = 0
+end catch 
+go
+--delete from fav
+create proc [dbo].[Fav_Delete](@usrID int, @pdid int, @CurrentID int output)
+as
+begin try
+delete YeuThich 
+where UserID = @usrID and Product_ID = @pdid
+set @CurrentID = @pdid
+end try
+begin catch
+set @CurrentID = 0
+end catch 
+go
+--
 select * from GioHang

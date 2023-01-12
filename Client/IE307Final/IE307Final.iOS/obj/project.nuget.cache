@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "kgA1cL8nIp0OTTYrPBZ9LQ8IB2Du0V2uG+0UpoHLtzQXwUi8yXKsVzaPiLut9FK9cZoYihBDRZF84xkTqDRzew==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\DELL\\Documents\\GitHub\\Game_Selling_App\\Client\\IE307Final\\IE307Final.iOS\\IE307Final.iOS.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\DELL\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.6.1\\xamarin.essentials.1.6.1.nupkg.sha512",
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.forms\\5.0.0.2012\\xamarin.forms.5.0.0.2012.nupkg.sha512"
+  ],
+  "logs": []
+}

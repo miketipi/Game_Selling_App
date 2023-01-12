@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IE307Final.AddGamePage" Title="Thêm game mới" BackgroundColor="{StaticResource Primary}">
+    <ContentPage.Content>
+        <StackLayout Margin="40,50" Spacing="10">
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.4*">
+                    </ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Text="Tên Game:"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       FontSize="20"
+                       VerticalOptions="Center"
+                       TextColor="White" />
+                <Entry Keyboard="Text"
+                       x:Name="EntGameName"
+                       VerticalOptions="Center"
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       PlaceholderColor="White" />
+                <Label Text="Hình ảnh:"
+                       Grid.Row="1"
+                       Grid.Column="0"
+                       FontSize="20"
+                       VerticalOptions="Center"
+                       TextColor="White" />
+                <Entry Keyboard="Text"
+                       x:Name="EntImg"
+                       VerticalOptions="Center"
+                       Grid.Row="1"
+                       Grid.Column="1"
+                       PlaceholderColor="White" />
+                <Label Text="Giới thiệu:"
+                       Grid.Row="2"
+                       Grid.Column="0"
+                       FontSize="20"
+                       VerticalOptions="Center"
+                       TextColor="White" />
+                <Entry Keyboard="Text"
+                       x:Name="EntDes"
+                       VerticalOptions="Center"
+                       Grid.Row="2"
+                       Grid.Column="1"
+                      
+                       PlaceholderColor="White" />
+                <Label Text="Giá tiền: "
+                       Grid.Row="3"
+                       Grid.Column="0"
+                       FontSize="20"
+                       VerticalOptions="Center"
+                       TextColor="White" />
+                <Entry Keyboard="Text"
+                       x:Name="EntPrice"
+                       VerticalOptions="Center"
+                       Grid.Row="3"
+                       Grid.Column="1"
+                       
+                       PlaceholderColor="White" />
+                <Label Text="Loại Game:"
+                       Grid.Row="4"
+                       Grid.Column="0"
+                       FontSize="20"
+                       VerticalOptions="Center"
+                       TextColor="White" />
+                <Entry Keyboard="Text"
+                       x:Name="EntGameType"
+                       VerticalOptions="Center"
+                       Grid.Row="4"
+                       Grid.Column="1"
+                       PlaceholderColor="White"
+                       ></Entry>
+                <Label Text="Nền tảng:"
+                       Grid.Row="5"
+                       Grid.Column="0"
+                       FontSize="20"
+                       VerticalOptions="Center"
+                       TextColor="White" />
+                <Entry Keyboard="Text"
+                       x:Name="EntPlatform"
+                       VerticalOptions="Center"
+                       Grid.Row="5"
+                       Grid.Column="1"
+                       PlaceholderColor="White"></Entry>
+                <Label Text="Đánh giá:"
+                       Grid.Row="6"
+                       Grid.Column="0"
+                       FontSize="20"
+                       VerticalOptions="Center"
+                       TextColor="White" />
+                <Entry Keyboard="Text"
+                       x:Name="EntRating"
+                       VerticalOptions="Center"
+                       Grid.Row="6"
+                       Grid.Column="1"
+                       PlaceholderColor="White"></Entry>
+              
+                    <Button x:Name="huy"
+                            Clicked="huy_Clicked"
+                            BackgroundColor="WhiteSmoke"
+                            Text="Huỷ"
+                            TextColor="Black"
+                            FontSize="16"
+                            FontAttributes="Bold" Grid.Column="0" Grid.Row="7"/>
+                <Button x:Name="Btn_Them"
+                        Clicked="Btn_Them_Clicked"
+                        BackgroundColor="WhiteSmoke"
+                        Text="Thêm sản phẩm"
+                        TextColor="Black"
+                        FontSize="16"
+                        FontAttributes="Bold"
+                        Grid.Column="1"
+                        Grid.Row="7" />
+                    
+                
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
