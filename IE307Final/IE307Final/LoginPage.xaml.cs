@@ -36,6 +36,7 @@ namespace IE307Final
             if (nd.UserName != "" && nd.UserName != null)
             {
                 await DisplayAlert("Thông báo", "Chào " + nd.UserName, "OK");
+                Account.usr = new Account();
                 Account.usr = nd;
                 MessagingCenter.Send<LoginPage>(this, (Account.usr.Role == 1) ? "admin" : "user");
                 await Shell.Current.GoToAsync("//main");

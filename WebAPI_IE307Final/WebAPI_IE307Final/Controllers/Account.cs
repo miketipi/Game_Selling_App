@@ -14,6 +14,5 @@ namespace WebAPI_IE307Final.Controllers
         public int Role { get; set; }
         public string Email { get; set; }
         public string phone { get; set; }
-        public string Address { get; set; }
     }
 }

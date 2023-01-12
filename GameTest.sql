@@ -80,15 +80,12 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[CTDonHang](
-	[Ma_CTDH] [int] IDENTITY(1,1) not null,
-	[Ma_DH] [int] NULL,
-	[ProductID] [int] NULL,
-	[So_Luong] [int] NULL,
-	[Price] [real] NULL,
-	[Total] [real] NULL,
+	[Ma_DH] [int] not NULL,
+	[ProductID] [int] not NULL,
  CONSTRAINT [PK_CTDonHang] PRIMARY KEY CLUSTERED 
 (
-	[Ma_CTDH] ASC
+	[ProductID] ASC,
+	[Ma_DH] asc
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -98,13 +95,13 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Don_Hang](
-	[SoDH] [int] IDENTITY(1,1) not null,
-	[UserID] [int] NULL,
-	[Ngay_Mua] [datetime] NULL,
-	[Tinh_Trang_Don_Hang] [bit] NULL,
+	[Ma_DH] [int] IDENTITY(1,1) not null,
+	[UserID] [int] not NULL,
+	[Ngay_Mua] [datetime] not NULL,
+	[Tinh_Trang_Don_Hang] [int] not NULL,
  CONSTRAINT [PK_Don_Hang] PRIMARY KEY CLUSTERED 
 (
-	[SoDH] ASC
+	[Ma_DH] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] 
 GO
@@ -158,16 +155,17 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-create proc [dbo].[AddUser](@realname nvarchar(500),@usrname nvarchar(100),@pwd nvarchar(100),@email nvarchar(100),@CurrentID int output)
+create proc [dbo].[AddUser](@realname nvarchar(500),@phone nvarchar(10),@usrname nvarchar(100),@pwd nvarchar(100),@email nvarchar(100), @usrrole int,@CurrentID int output)
 as
 if(exists(select * from Account where UserName=@usrname or Email=@Email))
  begin
  set @CurrentID=-1
  return
  end
- insert into Account(RealName,UserName,PWD,Email) values(@realname,@usrname,@pwd,@Email)
+ insert into Account(RealName,UserName,PWD,Email,UsrRole, Phone) values(@realname,@usrname,@pwd,@Email,@usrrole,@phone)
  set @CurrentID=@@IDENTITY
 GO
+select * from Account
 /* Them the loai game */
 SET ANSI_NULLS ON
 GO
@@ -225,20 +223,17 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-create PROC [dbo].[Update_Account](@mand int, @dt nvarchar(10), @pwd nvarchar(100), @email nvarchar(100),@CurrentID int output)
+create PROC [dbo].[Update_Account](@mand int, @usrname nvarchar (500), @dt nvarchar(10), @pwd nvarchar(100), @email nvarchar(100),@realname nvarchar(500),@CurrentID int output)
 as
 begin try
 
-if(exists(select * from Account where UserID<>@mand))
+if(exists(select * from Account where UserName = @usrname and UserID<>@mand))
  begin
   set @CurrentID=-1
   return
  end
-update account set Phone=@dt
-where UserID=@mand
-update account set PWD=@pwd
-where UserID=@mand
-update account set Email=@email
+update account 
+set Phone=@dt, PWD=@pwd, Email=@email
 where UserID=@mand
 set @CurrentID=@mand
 end try
@@ -246,6 +241,9 @@ begin catch
  set @CurrentID=0
  end catch
 GO
+drop proc Update_Account
+exec Update_Account @mand = 2, @usrname = "phuc", @dt = "0949586847", @email = "lamoo@gmail.com", @pwd = "123456"
+select * from account
 /* Thêm Game */
 set ansi_nulls on
 go
@@ -371,3 +369,70 @@ insert into CTDonHang (Ma_CTDH,Ma_DH,ProductID,So_Luong,Price,Total)
 values ('1','12354','3971273','1','120000','120000');
 SET IDENTITY_INSERT CTDonHang OFF
 select * from account
+/* Tao lai */
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+Create Table [dbo].[GioHang](
+[Product_ID] [int] not null,
+[UserID] [int] not null,
+ primary key clustered
+(
+	[Product_ID] asc,
+	[UserID] asc
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+
+
+
+
+alter table [dbo].[GioHang] with check add constraint [fk1_cart] foreign key ([Product_ID])
+references [dbo].[game] ([ProductID]) go
+alter table [dbo].[GioHang] with check add constraint [fk2_cart] foreign key ([UserID])
+references [dbo].[Account] ([UserID]) go
+
+alter table [dbo].[CTDonHang] with check add constraint [fk1_detail] foreign key ([Ma_DH])
+references [dbo].[Don_Hang] ([Ma_DH])
+alter table [dbo].[CTDonHang] with check add constraint [fk2_detail] foreign key ([ProductID])
+references [dbo].[game] ([ProductID]) go
+
+alter table [dbo].[Don_Hang] with check add constraint [fk1_DH] foreign key ([UserID])
+references [dbo].[Account] ([UserID]) go
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create Proc [dbo].[AddToCart] (@pdid int, @usrID int, @CurrentID int output)
+as 
+begin
+try
+if (exists (select * from GioHang where Product_ID = @pdid and UserID = @usrID))
+begin
+set @CurrentID = -1
+return 
+end
+insert into GioHang (Product_ID, UserID)
+values (@pdid, @usrID)
+set @CurrentID = @usrID
+end try
+begin catch
+set @CurrentID = 0
+end catch
+go
+
+--Binding Cart
+create proc [dbo].[Load_Cart] (@usrID int)
+as select a.ProductID, Name, Description,Rating, Price, Game_Img, Game_Type, Platform
+from game a, GioHang b
+where a.ProductID = b.Product_ID
+and UserID = @usrID
+go
+
+select * from GioHang

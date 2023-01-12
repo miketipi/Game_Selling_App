@@ -21,9 +21,9 @@
                          VerticalOptions="Center">
                 <ContentView Padding="0,40,0,40"
                              VerticalOptions="FillAndExpand">
-                    <Image Source="may_bay_background.png"
+                    <Image Source="game.png"
                            VerticalOptions="Center"
-                           HeightRequest="300" />
+                           HeightRequest="150" />
                 </ContentView>
             </StackLayout>
         </StackLayout>
@@ -33,7 +33,7 @@
                          Spacing="10">
                 <Label Text="Chào thầy và các bạn"
                        FontSize="Title" />
-                <Label Text="Đây là ứng dụng mua game do nhóm chúng em làm đồ án IE307"
+                <Label Text="Đây là ứng dụng mua game do nhóm chúng em thực hiện dưới sự hướng dẫn của thầy Võ Ngọc Tân và Thầy Phạm Nhật Duy cho môn Lập trình đa nền tảng trên ứng dụng di động, mã môn IE307"
                        FontSize="16"
                        Padding="0,0,0,0" />
                 <Label FontSize="16"
@@ -41,7 +41,7 @@
                     <Label.FormattedText>
                         <FormattedString>
                             <FormattedString.Spans>
-                                <Span Text="Các nguồn thông tin hoặc full dự án có thể tìm hiểu thêm tại " />
+                                <Span Text="Các nguồn thông tin hoặc full dự án có thể tìm hiểu thêm tại link github nhóm " />
                                 <Span Text="https://github.com/miketipi/Game_Selling_App.git"
                                       FontAttributes="Bold" />
                             </FormattedString.Spans>

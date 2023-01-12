@@ -33,12 +33,17 @@ namespace IE307Final
             string TenThat = EntRealName.Text;
             string email = EntEmail.Text;
             string phone = EntPhoneNumber.Text;
+            if(EntUsrName.Text == null || EntPassword==null || EntRealName==null || EntEmail.Text ==null || EntPhoneNumber==null)
+            {
+                await DisplayAlert("Thông báo", "Vui lòng nhâp đủ các trường thông tin", "OK");
+                return;
+            }    
             if (EntPassword.Text != EntPasswordAgain.Text)
             {
                 await DisplayAlert("Thông báo", "Mật khẩu nhập lại không đúng", "OK");
                 return;
             }
-            Account acc = new Account { UserName = TenND, RealName = TenThat, PWD = MatKhau, Email = email , phone = phone};
+            Account acc = new Account { UserName = TenND, RealName = TenThat, PWD = MatKhau, Email = email , phone = phone, Role=0};
             HttpClient http = new HttpClient();
             string jsonlh = JsonConvert.SerializeObject(acc);
             StringContent httcontent = new StringContent(jsonlh, Encoding.UTF8, "application/json");

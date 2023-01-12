@@ -91,7 +91,7 @@ namespace WebAPI_IE307Final.Controllers
 
                     result = null;
                 }
-
+                conn.Close();
             }
             return result;
         }
@@ -124,6 +124,7 @@ namespace WebAPI_IE307Final.Controllers
                 kq.Email = tb.Rows[0]["Email"].ToString();
                 kq.PWD = tb.Rows[0]["PWD"].ToString();
                 kq.Role = int.Parse(tb.Rows[0]["usrRole"].ToString());
+                kq.phone = tb.Rows[0]["phone"].ToString();
             }
             else
                 kq.UserID = 0; //Neu ko tim ra user thi ma user = 0 va se ko cho dang nhap o ung dung
@@ -136,6 +137,8 @@ namespace WebAPI_IE307Final.Controllers
             param.Add("usrname", nd.UserName);
             param.Add("pwd", nd.PWD);
             param.Add("Email", nd.Email);
+            param.Add("UsrRole", nd.Role);
+            param.Add("phone", nd.phone);
             int kq = int.Parse(Exec_Command("AddUser", param).ToString());
             if (kq > -1)
                 nd.UserID = kq;
@@ -184,6 +187,7 @@ namespace WebAPI_IE307Final.Controllers
         {
             Dictionary<string, object> param = new Dictionary<string, object>();
             param.Add("mand", nd.UserID);
+            param.Add("usrname", nd.UserName);
             param.Add("dt", nd.phone);
             param.Add("pwd", nd.PWD);
             param.Add("email", nd.Email);

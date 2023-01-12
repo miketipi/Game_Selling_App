@@ -38,7 +38,7 @@
                            VerticalOptions="Center"
                            Grid.Row="0"
                            Grid.Column="1"
-                           Placeholder="{Binding RealName}"
+                           Text="{Binding RealName}"
                            PlaceholderColor="White" />
                     <Label Text="Email:"
                            Grid.Row="1"
@@ -51,7 +51,7 @@
                            VerticalOptions="Center"
                            Grid.Row="1"
                            Grid.Column="1"
-                           Placeholder="{Binding Email}"
+                           Text="{Binding Email}"
                            PlaceholderColor="White" />
                     <Label Text="Số điện thoại:"
                            Grid.Row="2"
@@ -64,7 +64,7 @@
                            VerticalOptions="Center"
                            Grid.Row="2"
                            Grid.Column="1"
-                           Placeholder="{Binding phone}"
+                           Text="{Binding phone}"
                            PlaceholderColor="White" />
                     <Label Text="Tên đăng nhập:"
                            Grid.Row="3"
@@ -77,7 +77,7 @@
                            VerticalOptions="Center"
                            Grid.Row="3"
                            Grid.Column="1"
-                           Placeholder="@username"
+                           Text="{Binding UserName}"
                            PlaceholderColor="White" />
                     <Label Text="Mật khẩu: "
                            Grid.Row="4"
@@ -91,7 +91,7 @@
                            Grid.Row="4"
                            Grid.Column="1"
                            PlaceholderColor="White"
-                           Placeholder="{Binding PWD}"></Entry>
+                           Text="{Binding PWD}"></Entry>
                     <Label Text="Nhập lại mật khẩu: "
                            Grid.Row="5"
                            Grid.Column="0"
@@ -104,7 +104,7 @@
                            Grid.Row="5"
                            Grid.Column="1"
                            PlaceholderColor="White"
-                           Placeholder="Password"></Entry>
+                        ></Entry>
                     <Button x:Name="Btn_Change"
                             Clicked="Btn_Change_Clicked"
                             Grid.ColumnSpan="2"

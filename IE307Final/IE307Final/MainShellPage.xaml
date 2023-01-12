@@ -97,7 +97,7 @@
             <ShellContent Route="main" ContentTemplate="{DataTemplate local:MainPage}" />
         </Tab>
     </FlyoutItem>
-    <FlyoutItem Title="Thịnh hành" Icon="trend.png">
+    <FlyoutItem Title="Tất cả các game" Icon="trend.png">
         <Tab>
             <ShellContent ContentTemplate="{DataTemplate local:Trending}" />
         </Tab>

@@ -101,13 +101,20 @@ namespace WebAPI_IE307Final.Controllers
             }
         }
         [Route("api/HelloWebAPIController/Update_Account")]
-        [HttpPut]
+        [HttpPost]
         public IHttpActionResult Update_Account(Account nd)
         {
             try
             {
-                int kq = Database.Update_Account(nd);
-                return Ok(kq);
+                Dictionary<string, object> param = new Dictionary<string, object>();
+                param.Add("mand", nd.UserID);
+                param.Add("usrname", nd.UserName);
+                param.Add("dt", nd.phone);
+                param.Add("pwd", nd.PWD);
+                param.Add("email", nd.Email);
+                int kq = int.Parse(Database.Exec_Command("Update_Account", param).ToString());
+                string kqtv = Database.Exec_Command("Update_Account", param).ToString();
+                return Ok(nd);
             }
             catch
             {
@@ -122,6 +129,42 @@ namespace WebAPI_IE307Final.Controllers
             {
                 Product kq = Database.Them_Game(pd);
                 return Ok(kq);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
+        [Route("api/HelloWebAPIController/AddToCart")]
+        [HttpPost]
+        public IHttpActionResult AddToCart(Cart crt)
+        {
+            try
+            {
+                Dictionary<string, object> param = new Dictionary<string, object>();
+                param.Add("pdid", crt.ProductID);
+                param.Add("usrID", crt.UserID);
+                int kq = int.Parse(Database.Exec_Command("AddToCart", param).ToString());
+                string kqtv = Database.Exec_Command("AddToCart", param).ToString();
+                if (kqtv == null || kq < 0) crt.UserID = kq;
+                return
+                 Ok(crt);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
+        [Route("api/HelloWebAPIController/Load_Cart")]
+        [HttpGet]
+        public IHttpActionResult Load_Cart(int userID)
+        {
+            try
+            {
+                Dictionary<string, object> param = new Dictionary<string, object>();
+                param.Add("usrID", userID);
+                DataTable tb = Database.Read_Table("Load_Cart", param);
+                return Ok(tb);
             }
             catch
             {

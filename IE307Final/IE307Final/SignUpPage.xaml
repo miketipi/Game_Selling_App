@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="IE307Final.SignUpPage" Title="Đăng ký" BackgroundColor="{StaticResource PinkColor}">
+             x:Class="IE307Final.SignUpPage" Title="Đăng ký" BackgroundColor="{StaticResource Primary}">
     <ContentPage.Content>
         <StackLayout Margin="40,50"
                      Spacing="10">
@@ -37,7 +37,6 @@
                        VerticalOptions="Center"
                        Grid.Row="0"
                        Grid.Column="1"
-                       Placeholder="Nhập tên"
                        PlaceholderColor="White" />
                 <Label Text="Email:"
                        Grid.Row="1"
@@ -50,7 +49,6 @@
                        VerticalOptions="Center"
                        Grid.Row="1"
                        Grid.Column="1"
-                       Placeholder="@email"
                        PlaceholderColor="White" />
                 <Label Text="Số điện thoại:"
                        Grid.Row="2"
@@ -63,7 +61,7 @@
                        VerticalOptions="Center"
                        Grid.Row="2"
                        Grid.Column="1"
-                       Placeholder="@phone"
+                       
                        PlaceholderColor="White" />
                 <Label Text="Tên đăng nhập:"
                        Grid.Row="3"
@@ -76,7 +74,7 @@
                        VerticalOptions="Center"
                        Grid.Row="3"
                        Grid.Column="1"
-                       Placeholder="@username"
+                       
                        PlaceholderColor="White" />
                 <Label Text="Mật khẩu: "
                        Grid.Row="4"
@@ -90,7 +88,7 @@
                        Grid.Row="4"
                        Grid.Column="1"
                        PlaceholderColor="White"
-                       Placeholder="Password"></Entry>
+                       ></Entry>
                 <Label Text="Nhập lại mật khẩu: "
                        Grid.Row="5"
                        Grid.Column="0"
@@ -103,7 +101,7 @@
                        Grid.Row="5"
                        Grid.Column="1"
                        PlaceholderColor="White"
-                       Placeholder="Password"></Entry>
+                       ></Entry>
                 <Button x:Name="Btn_SignUp"
                         Clicked="Btn_SignUp_Clicked"
                         Grid.ColumnSpan="2"
@@ -112,7 +110,9 @@
                         Text="Đăng kí"
                         TextColor="Black"
                         FontSize="16"
-                        FontAttributes="Bold" />
+                        FontAttributes="Bold" 
+                        />
+                <!--BackgroundColor="White"-->
             </Grid>
         </StackLayout>
     </ContentPage.Content>

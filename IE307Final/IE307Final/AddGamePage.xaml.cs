@@ -42,5 +42,10 @@ namespace IE307Final
             else
                 await DisplayAlert("Thông báo", "Game đã tồn tại", "OK");
         }
+
+        private void huy_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new AddGamePage());
+        }
     }
 }

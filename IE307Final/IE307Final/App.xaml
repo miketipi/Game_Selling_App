@@ -18,7 +18,7 @@
                             <VisualState x:Name="Normal">
                                 <VisualState.Setters>
                                     <Setter Property="BackgroundColor"
-                                            Value="{StaticResource DarkPink}" />
+                                            Value="{StaticResource DarkTextColor}" />
                                     <Setter Property="HeightRequest"
                                             Value="40" />
                                     <Setter Property="CornerRadius"

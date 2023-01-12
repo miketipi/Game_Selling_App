@@ -14,12 +14,31 @@ namespace IE307Final
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MyCart : ContentPage
     {
+        List<Product> game = new List<Product>();
         public MyCart()
         {
-            InitializeComponent();       
-            CV_Cart.ItemsSource = Account.usrCart.GameList;
+            InitializeComponent();
+            CreateCartList();
         }
-
+        private async void CreateCartList()
+        {
+            CV_Cart.ItemsSource = null;
+            HttpClient http = new HttpClient();
+            var lst_cart = await http.GetStringAsync("http://" + BoSung.DiaChiIPMay + "/doanie307/api/HelloWebAPIController/Load_Cart?userID=" + Account.usr.UserID.ToString());
+            var cart = JsonConvert.DeserializeObject<List<Product>>(lst_cart);
+            game = cart;
+            float total = 0;
+            foreach (Product p in game)
+            {
+                total += p.Price;
+            }
+            CV_Cart.ItemsSource = game;
+        }
+        protected override void OnAppearing()
+        {
+            CreateCartList();
+            base.OnAppearing();
+        }
         private async void cmdMuahang_Clicked(object sender, EventArgs e)
         {
             if(Account.usr.UserID==0)

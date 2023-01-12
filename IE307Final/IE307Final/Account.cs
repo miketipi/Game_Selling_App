@@ -13,7 +13,6 @@ namespace IE307Final
         public int Role { get; set; }
         public string Email { get; set; }
         public string phone { get; set; }
-        public string Address { get; set; }
         public static Cart usrCart;
         public static Account usr;
         public static List<Product> GioHang { get; set; }

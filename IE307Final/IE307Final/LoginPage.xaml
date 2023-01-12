@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IE307Final.LoginPage"
              Shell.NavBarIsVisible="False"
-             BackgroundColor="{StaticResource PinkColor}">
+             BackgroundColor="{StaticResource Primary}">
     <ContentPage.Content>
         <StackLayout Margin="40,50"
                      Spacing="10">
@@ -29,7 +29,7 @@
                 <Label Text="Tên đăng nhập:"
                        Grid.Row="0"
                        Grid.Column="0"
-                       FontSize="10"
+                       FontSize="15"
                        VerticalOptions="Center"
                        TextColor="White" />
                 <Entry Keyboard="Text"
@@ -37,12 +37,11 @@
                        VerticalOptions="Center"
                        Grid.Row="0"
                        Grid.Column="1"
-                       Placeholder="@username"
                        PlaceholderColor="White" />
                 <Label Text="Mật khẩu: "
                        Grid.Row="1"
                        Grid.Column="0"
-                       FontSize="10"
+                       FontSize="15"
                        VerticalOptions="Center"
                        TextColor="White" />
                 <Entry Keyboard="Text"
@@ -51,11 +50,11 @@
                        Grid.Row="1"
                        Grid.Column="1"
                        PlaceholderColor="White"
-                       Placeholder="Password"></Entry>
+                       ></Entry>
                 <Label Text="Nhớ mật khẩu?"
                        Grid.Row="2"
                        Grid.Column="0"
-                       FontSize="10"
+                       FontSize="15"
                        VerticalOptions="Center"
                        TextColor="White" />
                 <Switch x:Name="SwtNhoMatKhau"
@@ -64,10 +63,10 @@
                         Grid.Row="2"
                         Grid.Column="1"
                         HorizontalOptions="Start" />
-                <Label Text="Chưa có tài khoản?"
+                <Label Text="Tạo tài khoản"
                        Grid.Row="3"
                        Grid.Column="0"
-                       FontSize="10"
+                       FontSize="15"
                        VerticalOptions="Center"
                        TextColor="White" />
                 <Button x:Name="Btn_Signup"
@@ -76,13 +75,17 @@
                         Grid.Row="3"
                         Grid.Column="1"
                         HeightRequest="25"
-                        WidthRequest="25" />
+                        WidthRequest="25"
+                        TextColor="Black"
+                        BackgroundColor="White" />
                 <Button x:Name="BtnLogin"
                         Clicked="BtnLogin_Clicked"
                         Text="Đăng nhập"
+                        TextColor="Black"
                         Grid.Column="0"
                         Grid.Row="4"
-                        Grid.ColumnSpan="2" />
+                        Grid.ColumnSpan="2"
+                        BackgroundColor="White"/>
 
             </Grid>
         </StackLayout>
